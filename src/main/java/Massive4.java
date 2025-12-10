@@ -9,15 +9,19 @@ public class Massive4 {
         System.out.println("Введите " + n + " чисел:");
         for (int i = 0; i < n; i++) {
             numbers[i] = scanner.nextInt();}
-        for (int i = 0; i < numbers.length / 2; i++);
-        int mix = numbers[0];
-        for (int i = 1; i > n; i++) {
-            if (numbers[i] < mix) {
-                mix = numbers[i];
-            }
+        System.out.println("Введите число для удаления");
+        int target = scanner.nextInt();
+        int count = 0;
+        for (int num : numbers) {
+            if (num == target) count++;}
+        int [] result = new int[n - count];
+        int index = 0;
+        for (int num : numbers) {
+            if (num != target) {
+                result[index] = num;
+                index++; } }
+                System.out.println("Итоговый массив: ");
+                for (int num : result)
+                    System.out.println(num + " ");
         }
-        System.out.println("Минимальное значение в массиве: " + mix);
-
-
     }
-}
