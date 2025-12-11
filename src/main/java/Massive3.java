@@ -8,8 +8,9 @@ public class Massive3 {
         int[] numbers = new int[n];
         System.out.println("Введите " + n + " чисел:");
         for (int i = 0; i < n; i++) {
-            numbers[i] = scanner.nextInt();}
-        for (int i = 0; i < numbers.length / 2; i++);
+            numbers[i] = scanner.nextInt();
+        }
+        for (int i = 0; i < numbers.length / 2; i++) ;
         System.out.println("Количество значений");
         System.out.println(numbers.length);
         int max = numbers[0];
@@ -18,7 +19,7 @@ public class Massive3 {
                 max = numbers[i];
             }
         }
-                System.out.println("Максимальное значение в массиве: " + max);
+        System.out.println("Максимальное значение в массиве: " + max);
 
     }
 }

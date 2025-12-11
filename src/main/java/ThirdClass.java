@@ -6,4 +6,5 @@ public class ThirdClass {
             System.out.println(i);
         }
         System.out.println();
-    }}
+    }
+}

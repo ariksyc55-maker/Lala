@@ -6,6 +6,6 @@ public class FourthClass {
             oddSum += i;
         }
         System.out.println(oddSum);
-        }
+    }
 }
 
