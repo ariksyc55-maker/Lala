@@ -11,6 +11,17 @@ public class Remember {
 
         System.out.println(); //красная строка
 
+        String a = "Java";
+        String b = "Java";
+        String c = new String("Java");
+
+        System.out.println(a == b);       // true (один объект из пула)
+        System.out.println(a == c);       // false (новый объект)
+        System.out.println(a.equals(c));  // true (текст одинаковый)
+
+
+        System.out.println(); //красная строка
+
         System.out.println("Пример №2");
 
         String text = " Привет, Ярослав! ";
