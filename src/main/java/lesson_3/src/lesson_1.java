@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class lesson_1 {
     public static void main(String[] args) {
+
+        //создаю массив и его длинну
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Количество элементов массива");
         int n = scanner.nextInt();
@@ -10,9 +13,13 @@ public class lesson_1 {
         for (int i = 0; i < n; i++) {
             numbers[i] = scanner.nextInt();
         }
+        //начальные переменные для сравнения
+
         int plus = 0;
         int minus = 0;
         int zero = 0;
+
+        //сравниваю переменные с 0 и отношу их к своим таблицам
 
         for (int num : numbers) {
             if (num > 0) {
@@ -25,6 +32,6 @@ public class lesson_1 {
         }
         System.out.println("Положительные элеиенты:" + plus);
         System.out.println("Отрицательные элементы:" + minus);
-        System.out.println("Раняется нули:" + zero);
+        System.out.println("Раняется нулю:" + zero);
     }
 }
