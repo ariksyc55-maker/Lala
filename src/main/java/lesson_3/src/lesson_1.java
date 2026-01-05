@@ -23,8 +23,8 @@ public class lesson_1 {
                 zero++;
             }
         }
-            System.out.println("Положительные элеиенты:" + plus);
-            System.out.println("Отрицательные элементы:" + minus);
-            System.out.println("Раняется нули:" + zero);
+        System.out.println("Положительные элеиенты:" + plus);
+        System.out.println("Отрицательные элементы:" + minus);
+        System.out.println("Раняется нули:" + zero);
     }
 }
