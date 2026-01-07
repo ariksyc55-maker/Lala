@@ -1,9 +1,11 @@
+import java.util.Scanner;
+
 public class lesson_5 {
     public static void main(String[] args) {
-        System.out.print("Дана строка: ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите текст указанный снизу");
         System.out.println(" Java developer ");
-        String text = " Java developer ";
-        System.out.println("Строка без пробелов");
-        System.out.println(text.trim());
+        String imput = scanner.nextLine();
+        System.out.println("Введенный текст: " + imput);
     }
 }
