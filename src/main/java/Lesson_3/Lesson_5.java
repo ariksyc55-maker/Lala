@@ -1,13 +1,10 @@
 package Lesson_3;
-
-import java.util.Scanner;
-
 public class Lesson_5 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите текст указанный снизу");
+        System.out.println("Текст с пробелами:");
         System.out.println(" Java developer ");
-        String imput = scanner.nextLine();
-        System.out.println("Введенный текст: " + imput);
+        String text = " Java developer ";
+        System.out.println("Текст без пробелов:");
+        System.out.println(text.trim());
     }
 }
