@@ -10,7 +10,7 @@ public class Lesson_4 {
         String text = scanner.nextLine();
 
         //создаю разделение по пробелам
-        String[] words = text.split("");
+        String[] words = text.split(" ");
         for (String word : words) {
             System.out.println(word);
         }
