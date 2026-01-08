@@ -17,7 +17,15 @@ public class Lesson_7 {
                 longerWord = word;
             }
         }
+
+        String smallerWord = "";
+        for (String word : words) {
+            if (word.length() < smallerWord.length()) {
+                smallerWord = word;
+            }
+        }
         //вывод самого длинного слова
         System.out.println("Самое длинное слово: " + longerWord);
+        System.out.println("Самое короткое слово: " + smallerWord);
     }
 }
