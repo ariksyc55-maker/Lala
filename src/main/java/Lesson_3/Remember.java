@@ -1,3 +1,5 @@
+package Lesson_3;
+
 public class Remember {
     public static void main(String[] args) {
 

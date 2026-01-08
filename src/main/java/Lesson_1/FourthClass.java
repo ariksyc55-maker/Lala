@@ -1,3 +1,5 @@
+package Lesson_1;
+
 public class FourthClass {
     public static void main(String[] args) {
         System.out.println("--- Задание 3: Сумма  чисел от 1 до 100 ---");

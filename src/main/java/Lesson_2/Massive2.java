@@ -1,3 +1,5 @@
+package Lesson_2;
+
 import java.util.Arrays;
 
 public class Massive2 {
