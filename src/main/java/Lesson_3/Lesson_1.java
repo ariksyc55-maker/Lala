@@ -32,7 +32,7 @@ public class Lesson_1 {
                 zero++;
             }
         }
-        System.out.println("Положительные элеиенты:" + plus);
+        System.out.println("Положительные элементы:" + plus);
         System.out.println("Отрицательные элементы:" + minus);
         System.out.println("Раняется нулю:" + zero);
     }
