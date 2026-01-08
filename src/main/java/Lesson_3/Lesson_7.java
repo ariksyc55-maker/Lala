@@ -3,7 +3,7 @@ package Lesson_3;
 public class Lesson_7 {
     public static void main(String[] args) {
         //создаем указаное предложение
-        System.out.println("Hello World! Hi Whooooooosh");
+        System.out.println("Hello    World! Hi Whooooooosh");
         String text = "Hello World! Hi Whooooooosh";
         System.out.println("Длина строки: " + text.length());
         //здесь задаем пробел разделителем слов
