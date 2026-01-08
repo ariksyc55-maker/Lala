@@ -1,4 +1,4 @@
-public class lesson_7 {
+public class Lesson_7 {
     public static void main(String[] args) {
         //создаем указаное предложение
         System.out.println("Hello World! Hi Whooooooosh");
@@ -19,4 +19,3 @@ public class lesson_7 {
         System.out.println("Самое длинное слово: " + longerWord);
     }
 }
-

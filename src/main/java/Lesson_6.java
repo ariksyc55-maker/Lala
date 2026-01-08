@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class lesson_6 {
+public class Lesson_6 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите текст: ");

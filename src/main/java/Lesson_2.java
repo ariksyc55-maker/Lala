@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class lesson_2 {
+public class Lesson_2 {
     public static void main(String[] args) {
         //создаю ввод текста
         Scanner scanner = new Scanner(System.in);
