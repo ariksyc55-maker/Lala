@@ -7,10 +7,7 @@ public class Lesson_6 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите текст: ");
         String text = scanner.nextLine();
-        String word1 = "привет";
-        String replacement = "***";
-        String regex = "(?i)\\b(" + word1 + ")\\b";
-        System.out.println(text.replaceAll(regex, replacement));
+        System.out.println(text.replaceAll("привет", "***"));
         scanner.close();
     }
 }

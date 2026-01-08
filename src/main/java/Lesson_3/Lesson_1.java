@@ -28,7 +28,7 @@ public class Lesson_1 {
                 plus++;
             } else if (num < 0) {
                 minus++;
-            } else if (num == 0) {
+            } {
                 zero++;
             }
         }
