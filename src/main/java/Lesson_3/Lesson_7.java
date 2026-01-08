@@ -11,7 +11,7 @@ public class Lesson_7 {
         //здесь создаем переменную (самое длинное слово)
         //в дальнейшем внесем сюда слово
         String longerWord = "";
-        String smallerWord = "";
+        String smallerWord = words[0];
         //перебираем слова
         for (String word : words) {
             if (word.length() > longerWord.length()) {
@@ -19,11 +19,12 @@ public class Lesson_7 {
                 if (word.length() < smallerWord.length()) {
                     smallerWord = word;
 
+                }
             }
         }
-        //вывод самого длинного слова
-        System.out.println("Самое длинное слово: " + longerWord);
-        System.out.println("Самое короткое слово: " + smallerWord);
+            //вывод самого длинного слова
+            System.out.println("Самое длинное слово: " + longerWord);
+            System.out.println("Самое короткое слово: " + smallerWord);
+
     }
-}
 }
