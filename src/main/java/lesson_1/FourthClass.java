@@ -10,4 +10,3 @@ public class FourthClass {
         System.out.println(oddSum);
     }
 }
-
