@@ -4,35 +4,46 @@ import java.util.Scanner;
 
 public class Lesson_2 {
     public static void main(String[] args) {
-        //создаю ввод текста
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите предложение");
-        String word = scanner.nextLine();
+        Scanner scanner = new Scanner(System.in); // Создаем Scanner только один раз
+
+        String inputSentence = readInput(scanner); // Вызываем метод для чтения ввода
         System.out.println("Введенный текст:");
-        System.out.println(word);
-        System.out.println();
+        System.out.println(inputSentence);
+        System.out.println(); // Пустая строка для разделения вывода
 
-        /*начинаю создавть согласно плану
-        1.Длина строки;
-        2.Первый и последний символ;
-        3.Каждый символ с новой строки*/
+        // Вызываем методы для выполнения каждой из задач
+        KolichestvoSimvolov(inputSentence);
+        FirstAndLastCharacter(inputSentence);
+        SimvolNovoqStroki(inputSentence);
 
-        //1
+        scanner.close(); // Закрываем Scanner в конце
+    }
+
+    private static String readInput(Scanner scanner) {
+        System.out.println("Введите предложение");
+        return scanner.nextLine();
+    }
+
+
+    private static void KolichestvoSimvolov(String sentence) {
         System.out.print("Количество символов: ");
-        System.out.println(word.length());
-        System.out.println();
+        System.out.println(sentence.length());
+        System.out.println(); // Пустая строка для разделения вывода
+    }
 
-        //2
-        char first = word.charAt(0);
-        char last = word.charAt(word.length() - 1);
+
+    private static void FirstAndLastCharacter(String sentence) {
+        char first = sentence.charAt(0);
+        char last = sentence.charAt(sentence.length() - 1);
         System.out.println("Первый символ: " + first);
         System.out.println("Последний символ: " + last);
-        System.out.println();
 
-        //3
+    }
+
+    private static void SimvolNovoqStroki(String sentence) {
         System.out.println("Каждый символ с новой строки: ");
-        for (int i = 0; i < word.length(); i++) {
-            System.out.println(word.charAt(i));
+        for (int i = 0; i < sentence.length(); i++) {
+            System.out.println(sentence.charAt(i));
         }
     }
 }

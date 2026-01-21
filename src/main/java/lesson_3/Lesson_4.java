@@ -6,10 +6,18 @@ public class Lesson_4 {
     public static void main(String[] args) {
         //создаем строку вывода нашего текста
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите текст:");
-        String text = scanner.nextLine();
+        String inputSenter = readInput(scanner);
+        System.out.println(inputSenter);
+        System.out.println();
+
+        TextProbel(inputSenter);
+        SchetSlov(inputSenter);
 
         //создаю разделение по пробелам
+        private static String readInput(Scanner scanner) {
+        }
+
+        private static void T
         String[] words = text.split(" ");
         for (String word : words) {
             System.out.println(word);
