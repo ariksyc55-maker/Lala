@@ -12,6 +12,7 @@ public class Lesson_6 {
 
         badWord(inputSentence);
     }
+
     public static void badWord(String text) {
         System.out.println(text.replaceAll("привет", "***"));
     }

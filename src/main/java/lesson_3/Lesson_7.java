@@ -7,13 +7,14 @@ public class Lesson_7 {
 
         longerAndSmallerWord(inputSentence);
     }
+
     public static void longerAndSmallerWord(String text) {
         System.out.println("Длина строки: " + text.length());
         String[] words = text.split(" ");
         String longerWord = "";
         String smallerWord = words[0];
 
-        for(String word : words) {
+        for (String word : words) {
             if (word.length() > longerWord.length()) {
                 longerWord = word;
                 if (word.length() < smallerWord.length()) {
