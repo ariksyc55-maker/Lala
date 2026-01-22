@@ -4,26 +4,26 @@ import java.util.Scanner;
 
 public class Lesson_4 {
     public static void main(String[] args) {
-        //создаем строку вывода нашего текста
         Scanner scanner = new Scanner(System.in);
-        String inputSenter = readInput(scanner);
-        System.out.println(inputSenter);
+
+        System.out.println("Введите текст");
+        String inputSentence = scanner.nextLine();
+        System.out.println("Вы ввели предложение: " + inputSentence);
         System.out.println();
 
-        TextProbel(inputSenter);
-        SchetSlov(inputSenter);
-
-        //создаю разделение по пробелам
-        private static String readInput(Scanner scanner) {
-        }
-
-        private static void T
+        countWord(inputSentence);
+        countingWords(inputSentence);
+    }
+    public static void countWord(String text) {
         String[] words = text.split(" ");
         for (String word : words) {
             System.out.println(word);
         }
         System.out.println("Количество слов " + words.length);
-        //веду посчет слов
+    }
+
+    public static void countingWords(String text){
+        String[] words = text.trim().split(" ");
         for (int i = 0; i < words.length; i++) {
             System.out.println("Подсчет слов " + (i + 1) + ": " + words[i]);
         }
