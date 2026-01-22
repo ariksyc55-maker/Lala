@@ -5,31 +5,42 @@ import java.util.Scanner;
 public class Lesson_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Количество элементов массива");
+
+        System.out.println("Колиство элемнтов массива");
         int n = scanner.nextInt();
-        int[] numbers = new int[n];
-        System.out.println("Введите " + n + " чисел:");
+        int[] numbers = fillArray(scanner, n);
 
-        for(int i = 0; i < n; ++i) {
-            numbers[i] = scanner.nextInt();
+        comparingNumbers(numbers);
+
+    }
+
+    public static int[] fillArray(Scanner scanner, int size) {
+        int[] array = new int[size];
+        System.out.println("Введите " + size + " чисел");
+        for (int i = 0; i < size; i++) {
+            array[i] = scanner.nextInt();
         }
+        return array;
 
+    }
+
+    public static void comparingNumbers(int[] numbers) {
         int plus = 0;
         int minus = 0;
         int zero = 0;
 
-        for(int num : numbers) {
+        for (int num : numbers) {
             if (num > 0) {
                 ++plus;
             } else if (num < 0) {
                 ++minus;
+            } else {
+
+                ++zero;
             }
-
-            ++zero;
         }
-
-        System.out.println("Положительные элементы:" + plus);
-        System.out.println("Отрицательные элементы:" + minus);
-        System.out.println("Раняется нулю:" + zero);
+        System.out.println("Положительные элементы: " + plus);
+        System.out.println("Отрицательные элементы: " + minus);
+        System.out.println("Раняется нулю: " + zero);
     }
 }

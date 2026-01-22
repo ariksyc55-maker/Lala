@@ -4,21 +4,23 @@ import java.util.Scanner;
 
 public class Lesson_3 {
     public static void main(String[] args) {
-        //создаем строку вывода нашего текста
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Введите предложение: ");
-        String text = scanner.nextLine();
-        /*задаем два условия
-        1. Первое проверяет сколько у нас значений,
-        если больше 10, то все что после 10 заменяется на ...
-        2. Если меньше то просто оставляет текст
-        */
+        String inputSentence = scanner.nextLine();
+        System.out.println("Вы ввели: " + inputSentence);
+        System.out.println();
+
+        textDoNotMoreTenCharacters(inputSentence);
+    }
+
+    public static void textDoNotMoreTenCharacters(String text) {
         if (text.length() > 10) {
             System.out.print(text.substring(0, 10));
             System.out.println("...");
         } else {
             System.out.println(text);
-
         }
+
     }
 }
