@@ -12,10 +12,9 @@ public class Lesson_2 {
         System.out.println(); // Пустая строка для разделения вывода
 
         // Вызываем методы для выполнения каждой из задач
-        KolichestvoSimvolov(inputSentence);
-        FirstAndLastCharacter(inputSentence);
-        SimvolNovoqStroki(inputSentence);
-
+        kolichestvoSimvolov(inputSentence);
+        firstAndLastCharacter(inputSentence);
+        simvolNovoqStroki(inputSentence);
         scanner.close(); // Закрываем Scanner в конце
     }
 
@@ -25,14 +24,14 @@ public class Lesson_2 {
     }
 
 
-    private static void KolichestvoSimvolov(String sentence) {
+    private static void kolichestvoSimvolov(String sentence) {
         System.out.print("Количество символов: ");
         System.out.println(sentence.length());
         System.out.println(); // Пустая строка для разделения вывода
     }
 
 
-    private static void FirstAndLastCharacter(String sentence) {
+    private static void firstAndLastCharacter(String sentence) {
         char first = sentence.charAt(0);
         char last = sentence.charAt(sentence.length() - 1);
         System.out.println("Первый символ: " + first);
@@ -40,7 +39,7 @@ public class Lesson_2 {
 
     }
 
-    private static void SimvolNovoqStroki(String sentence) {
+    private static void simvolNovoqStroki(String sentence) {
         System.out.println("Каждый символ с новой строки: ");
         for (int i = 0; i < sentence.length(); i++) {
             System.out.println(sentence.charAt(i));
