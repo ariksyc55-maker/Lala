@@ -24,7 +24,6 @@ public class Lesson_7 {
             if (word.length() > longerWord.length()) {
                 longerWord = word;
             }
-
             if (word.length() < smallerWord.length()) {
                 smallerWord = word;
             }
