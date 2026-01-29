@@ -13,10 +13,10 @@ public class Lesson_3 {
         System.out.println("Вы ввели: " + inputSentence);
         System.out.println();
 
-        // СОХРАНЯЕМ результат обработки в новую переменную
+
         String processedText = textDoNotMoreTenCharacters(inputSentence);
 
-        // ПЕРЕДАЕМ обработанный результат в метод вывода
+
         lineOutput(processedText);
     }
 
@@ -24,7 +24,6 @@ public class Lesson_3 {
         scanner = new Scanner(System.in);
     }
 
-    // ИСПРАВЛЕНО: заменили void на String
     public static String textDoNotMoreTenCharacters(String text) {
         if (text.length() > 10) {
             return text.substring(0, 10) + "...";
