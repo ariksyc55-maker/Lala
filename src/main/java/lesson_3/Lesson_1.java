@@ -3,15 +3,25 @@ package lesson_3;
 import java.util.Scanner;
 
 public class Lesson_1 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    static int plus = 0;
+    static int minus = 0;
+    static int zero = 0;
 
-        System.out.println("Колиство элемнтов массива");
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in); // Создаем Scanner только один раз
+
+        System.out.println("Количество элементов массива: ");
         int n = scanner.nextInt();
         int[] numbers = fillArray(scanner, n);
 
         comparingNumbers(numbers);
+        lineOutput(numbers);
 
+    }
+
+    private static String readInput(Scanner scanner) {
+        System.out.println("Введите предложение");
+        return scanner.nextLine();
     }
 
     public static int[] fillArray(Scanner scanner, int size) {
@@ -25,9 +35,7 @@ public class Lesson_1 {
     }
 
     public static void comparingNumbers(int[] numbers) {
-        int plus = 0;
-        int minus = 0;
-        int zero = 0;
+
 
         for (int num : numbers) {
             if (num > 0) {
@@ -39,6 +47,9 @@ public class Lesson_1 {
                 ++zero;
             }
         }
+    }
+
+    public static void lineOutput(int[] numbers) {
         System.out.println("Положительные элементы: " + plus);
         System.out.println("Отрицательные элементы: " + minus);
         System.out.println("Раняется нулю: " + zero);
