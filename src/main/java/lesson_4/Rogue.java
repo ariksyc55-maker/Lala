@@ -8,6 +8,6 @@ public class Rogue extends  Convocation {
 
     public void voice() {
         System.out.println("Я представитель класса " + abilities + ". Моё имя " + name);
-        System.out.println(". У меня здоровье " + health + " и моя сила " + power);
+        System.out.println(" -У меня здоровье " + health + " и моя сила " + power);
     }
 }
