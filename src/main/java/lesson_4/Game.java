@@ -1,8 +1,8 @@
 package lesson_4;
 
-import lesson_4.Hero.Mage;
-import lesson_4.Hero.Rogue;
-import lesson_4.Hero.Warrior;
+import lesson_4.hero.Mage;
+import lesson_4.hero.Rogue;
+import lesson_4.hero.Warrior;
 
 public class Game {
     public static void main(String[] args) {
@@ -50,7 +50,7 @@ public class Game {
         getVoice(rogueOne);
         getVoice(rogueTwo);
     }
-    public static void getVoice(Convocation convocation) {
+    public static void getVoice(Hero convocation) {
         convocation.voice();
     }
 }

@@ -1,8 +1,8 @@
-package lesson_4.Hero;
+package lesson_4.hero;
 
-import lesson_4.Convocation;
+import lesson_4.Hero;
 
-public class Mage extends Convocation {
+public class Rogue extends Hero {
     public String name;
     public String abilities;
     public int health;

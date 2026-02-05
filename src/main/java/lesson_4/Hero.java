@@ -1,6 +1,6 @@
 package lesson_4;
 
-public class Convocation {
+public class Hero {
     public void voice() {
         System.out.println();
     }
