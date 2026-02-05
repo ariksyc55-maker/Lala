@@ -49,8 +49,14 @@ public class Game {
         getVoice(mageTwo);
         getVoice(rogueOne);
         getVoice(rogueTwo);
+        battle(warriorOne, mageOne);
     }
     public static void getVoice(Hero convocation) {
         convocation.voice();
+    }
+    public static void battle(Hero attackHero,Hero targetHero){
+        System.out.println("======БИТВА НАЧИНАЕТСЯ======");
+        targetHero.health = targetHero.health - attackHero.power;
+        System.out.println(targetHero);
     }
 }
