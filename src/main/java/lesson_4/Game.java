@@ -1,5 +1,9 @@
 package lesson_4;
 
+import lesson_4.Hero.Mage;
+import lesson_4.Hero.Rogue;
+import lesson_4.Hero.Warrior;
+
 public class Game {
     public static void main(String[] args) {
 
