@@ -33,9 +33,6 @@ public class Hero {
     public void theWinnerWord(){
         System.out.println(this.name + ": Атакую");
     }
-    public void attack(Hero target){
-        System.out.println(this.name + " атакую " + target.name + " стандартной атакой");
-        target.takeDamage(this.power);
-    }
+
 }
 
