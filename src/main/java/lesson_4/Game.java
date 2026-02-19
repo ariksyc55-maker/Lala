@@ -61,7 +61,6 @@ public class Game {
         System.out.println("======БИТВА НАЧИНАЕТСЯ======");
         System.out.println();
         System.out.println(attackHero.name + " ПРОТИВ " + targetHero.name);
-        targetHero.takeDamage(attackHero.power);
         targetHero.health = targetHero.health - attackHero.power;
         attackHero.theWinnerWord();
         System.out.println(targetHero);
