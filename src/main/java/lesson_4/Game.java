@@ -50,14 +50,14 @@ public class Game {
         getVoice(rogueOne);
         getVoice(rogueTwo);
 
-        battle(warriorOne, mageOne);
+        attack(warriorOne, mageOne);
     }
 
     public static void getVoice(Hero convocation) {
         convocation.voice();
     }
 
-    public static void battle(Hero attackHero, Hero targetHero) {
+    public static void attack(Hero attackHero, Hero targetHero) {
         System.out.println("======БИТВА НАЧИНАЕТСЯ======");
         System.out.println();
         System.out.println(attackHero.name + " ПРОТИВ " + targetHero.name);
