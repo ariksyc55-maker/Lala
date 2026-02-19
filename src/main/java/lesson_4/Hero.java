@@ -4,16 +4,16 @@ public class Hero {
     public int health;
     public int power;
     public String name;
-    public String abilities;
+    public String clazz;
 
     public void voice() {
-        System.out.println("Я представитель класса " + abilities + ". Моё имя " + name);
+        System.out.println("Я представитель класса " + clazz + ". Моё имя " + name);
         System.out.println(" -У меня здоровье " + health + " и моя сила " + power);
         System.out.println();
     }
 
     public String toString() {
-        return name + " (" + abilities + ") - Здоровье: " + health + ", Сила: " + power;
+        return name + " (" + clazz + ") - Здоровье: " + health + ", Сила: " + power;
     }
 
     public void takeDamage(int damage) {

@@ -4,7 +4,7 @@ import lesson_4.Hero;
 
 public class Mage extends Hero {
     public Mage(){
-        super();
+        clazz = "Маг";
     }
     public void attack(Hero target){
         System.out.println(this.name + ": Выпуская огненный шар в " + target.name);
