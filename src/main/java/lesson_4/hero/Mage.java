@@ -10,7 +10,7 @@ public class Mage extends Hero {
         System.out.println(this.name + ": Выпуская огненный шар в " + target.name);
         target.takeDamage(target.power);
     }
-    public void theWinnerWord(){
+    public void sayWinnerWord(){
         System.out.println(" Я " + this.name + " сожгу тебя до тла");
     }
 }

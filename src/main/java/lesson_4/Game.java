@@ -31,8 +31,7 @@ public class Game {
         rogueTwo.health = 150;
         rogueTwo.power = 40;
 
-        getVoice(warriorOne);
-        getVoice(warriorTwo);
+
         getVoice(mageOne);
         getVoice(mageTwo);
         getVoice(rogueOne);
@@ -41,19 +40,19 @@ public class Game {
         attack(warriorOne, mageOne);
     }
 
-    public static void getVoice(Hero convocation) {
-        convocation.voice();
+    public static void getVoice(Hero hero) {
+        hero.voice();
     }
 
     public static void attack(Hero attackHero, Hero targetHero) {
         System.out.println("======БИТВА НАЧИНАЕТСЯ======");
         System.out.println();
         System.out.println(attackHero.name + " ПРОТИВ " + targetHero.name);
-        targetHero.health = targetHero.health - attackHero.power;
-        attackHero.theWinnerWord();
-        System.out.println(targetHero);
-        System.out.println(attackHero);
-        System.out.println();
+        attackHero.attack(targetHero);
+        attackHero.sayWinnerWord();
+        targetHero.voice();
+        attackHero.voice();
+
         targetHero.theLossWords();
         System.out.println();
     }

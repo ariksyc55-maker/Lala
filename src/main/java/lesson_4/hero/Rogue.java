@@ -12,7 +12,7 @@ public class Rogue extends Hero {
         target.takeDamage(target.power);
     }
 
-    public void theWinnerWord() {
+    public void sayWinnerWord() {
         System.out.println(this.name + " Я разогнался");
     }
 }

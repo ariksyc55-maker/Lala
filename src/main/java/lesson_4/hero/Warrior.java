@@ -8,12 +8,13 @@ public class Warrior extends Hero {
         this.name = name;
         this.health = health;
         this.power = power;
+        voice();
     }
     public void attack(Hero target){
-        System.out.println(this.name + ": Наносит Сильнейший Удар мечом по" + target.name);
+        System.out.println(this.name + ": Наносит Сильнейший Удар мечом по " + target.name);
         target.takeDamage(target.power);
     }
-    public void theWinnerWord(){
+    public void sayWinnerWord(){
         System.out.println(this.name + ": Почуствую мою мощь");
     }
 }

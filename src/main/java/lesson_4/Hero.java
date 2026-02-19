@@ -11,10 +11,10 @@ public class Hero {
         System.out.println(" -У меня здоровье " + health + " и моя сила " + power);
         System.out.println();
     }
-
-    public String toString() {
-        return name + " (" + clazz + ") - Здоровье: " + health + ", Сила: " + power;
+    public void attack(Hero targetHero){
+        targetHero.takeDamage(power);
     }
+
 
     public void takeDamage(int damage) {
         this.health -= damage;
@@ -30,7 +30,7 @@ public class Hero {
             System.out.println(this.name + ": Я ранен, но могу продолжать сражаться!");
         }
     }
-    public void theWinnerWord(){
+    public void sayWinnerWord(){
         System.out.println(this.name + ": Атакую");
     }
 
