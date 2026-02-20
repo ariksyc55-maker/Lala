@@ -31,7 +31,7 @@ public class Game {
         System.out.println();
         System.out.println(attackHero.name + " ПРОТИВ " + targetHero.name);
         System.out.println("Первый ход: " + attackHero.name);
-        attackHero.sayWinnerWord();
+        attackHero.wordsBeforeTheAttack();
         attackHero.attack(targetHero);
         targetHero.voice();
         attackHero.voice();
@@ -44,5 +44,12 @@ public class Game {
         targetHero.voice();
         attackHero.voice();
         attackHero.theLossWords();
+
+        System.out.println("Второй ход: " + attackHero.name);
+        attackHero.attack(targetHero);
+        attackHero.voice();
+        targetHero.voice();
+        attackHero.wordsOfThreat();
+        System.out.println("Победитель битвы: " + attackHero.name);
     }
 }

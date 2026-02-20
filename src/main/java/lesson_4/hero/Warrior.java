@@ -17,4 +17,7 @@ public class Warrior extends Hero {
     public void wordsOfThreat(){
         System.out.println(this.name + ": Почуствую мою мощь");
     }
+    public void wordsBeforeTheAttack() {
+        System.out.println(this.name + ": атакует");
+    }
 }

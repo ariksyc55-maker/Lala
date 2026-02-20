@@ -19,4 +19,7 @@ public class Rogue extends Hero {
     public void wordsOfThreat() {
         System.out.println(this.name + " Я разогнался");
     }
+    public void wordsBeforeTheAttack() {
+        System.out.println(this.name + ": атакует");
+    }
 }

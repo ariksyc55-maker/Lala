@@ -30,8 +30,7 @@ public class Hero {
             System.out.println(this.name + ": Я ранен, но могу продолжать сражаться!");
         }
     }
-    public void sayWinnerWord(){
-        System.out.println(this.name + " произносит фразу перед атакой: Атакую");
+    public void wordsBeforeTheAttack(){
     }
     public void wordsOfThreat (){
         System.out.println(this.name);
