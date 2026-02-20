@@ -11,10 +11,10 @@ public class Warrior extends Hero {
         voice();
     }
     public void attack(Hero target){
-        System.out.println(this.name + ": Наносит Сильнейший Удар мечом по " + target.name);
+        System.out.println(this.name + " наносит удар мечом " + target.name);
         target.takeDamage(target.power);
     }
-    public void sayWinnerWord(){
+    public void wordsOfThreat(){
         System.out.println(this.name + ": Почуствую мою мощь");
     }
 }

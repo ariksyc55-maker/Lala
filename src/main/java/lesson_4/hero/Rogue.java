@@ -3,8 +3,12 @@ package lesson_4.hero;
 import lesson_4.Hero;
 
 public class Rogue extends Hero {
-     public Rogue(){
+     public Rogue(String name, int health, int power){
          clazz = " Разбойник";
+         this.name = name;
+         this.health = health;
+         this.power = power;
+         voice();
      }
 
     public void attack(Hero target) {
@@ -12,7 +16,7 @@ public class Rogue extends Hero {
         target.takeDamage(target.power);
     }
 
-    public void sayWinnerWord() {
+    public void wordsOfThreat() {
         System.out.println(this.name + " Я разогнался");
     }
 }

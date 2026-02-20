@@ -11,31 +11,13 @@ public class Game {
 
         Warrior warriorTwo = new Warrior("Фростморн", 200, 40);
 
-        Mage mageOne = new Mage();
-        mageOne.name = "Ягермейстер";
-        mageOne.health = 100;
-        mageOne.power = 50;
+        Mage mageOne = new Mage("Ягерместер", 100, 50);
 
-        Mage mageTwo = new Mage();
-        mageTwo.name = "Ильестр";
-        mageTwo.health = 120;
-        mageTwo.power = 45;
+        Mage mageTwo = new Mage("Ильестр", 120, 45);
 
-        Rogue rogueOne = new Rogue();
-        rogueOne.name = "Берсек";
-        rogueOne.health = 120;
-        rogueOne.power = 50;
+        Rogue rogueOne = new Rogue("Берсек", 120, 50);
 
-        Rogue rogueTwo = new Rogue();
-        rogueTwo.name = "Брианна";
-        rogueTwo.health = 150;
-        rogueTwo.power = 40;
-
-
-        getVoice(mageOne);
-        getVoice(mageTwo);
-        getVoice(rogueOne);
-        getVoice(rogueTwo);
+        Rogue rogueTwo = new Rogue("Брианна", 150, 40);
 
         attack(warriorOne, mageOne);
     }
@@ -48,12 +30,19 @@ public class Game {
         System.out.println("======БИТВА НАЧИНАЕТСЯ======");
         System.out.println();
         System.out.println(attackHero.name + " ПРОТИВ " + targetHero.name);
-        attackHero.attack(targetHero);
+        System.out.println("Первый ход: " + attackHero.name);
         attackHero.sayWinnerWord();
+        attackHero.attack(targetHero);
         targetHero.voice();
         attackHero.voice();
-
         targetHero.theLossWords();
         System.out.println();
+
+        System.out.println("Второй ход: " + targetHero.name);
+        targetHero.attack(attackHero);
+        System.out.println();
+        targetHero.voice();
+        attackHero.voice();
+        attackHero.theLossWords();
     }
 }
