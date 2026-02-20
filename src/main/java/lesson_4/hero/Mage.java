@@ -12,7 +12,7 @@ public class Mage extends Hero {
     }
     public void attack(Hero target){
         System.out.println(this.name + ": Выпуская огненный шар в " + target.name);
-        target.takeDamage(target.power);
+        target.takeDamage(this.power);
     }
     public void wordsOfThreat(){
         System.out.println(" Я " + this.name + " сожгу тебя до тла");

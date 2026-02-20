@@ -13,7 +13,7 @@ public class Rogue extends Hero {
 
     public void attack(Hero target) {
         System.out.println(this.name + ": Делает внезапную атаку" + target.name);
-        target.takeDamage(target.power);
+        target.takeDamage(this.power);
     }
 
     public void wordsOfThreat() {

@@ -12,7 +12,7 @@ public class Warrior extends Hero {
     }
     public void attack(Hero target){
         System.out.println(this.name + " наносит удар мечом " + target.name);
-        target.takeDamage(target.power);
+        target.takeDamage(this.power);
     }
     public void wordsOfThreat(){
         System.out.println(this.name + ": Почуствую мою мощь");
