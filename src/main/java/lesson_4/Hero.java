@@ -15,12 +15,11 @@ public class Hero {
         targetHero.takeDamage(power);
     }
 
-    // Геттер для здоровья
+
     public int getHealth() {
         return this.health;
     }
 
-    // Метод проверки жизни героя
     public boolean isAlive() {
         return this.getHealth() > 0;
     }
