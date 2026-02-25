@@ -120,5 +120,50 @@ public class Game {
         System.out.println("-----БИТВА НАЧИНАЕТСЯ-----");
         System.out.print("Сражаются: " + myHero.name + " Количество здоровья: " + myHero.health + " и ");
         System.out.println(opponent.name + " Количество здоровья: " + opponent.health);
+        System.out.println();
+
+        int round = 1;
+
+        while (myHero.isAlive() && opponent.isAlive()){
+            System.out.println("----- РАУНД " + round + "-----");
+
+            System.out.println("Ход: " + myHero);
+            myHero.wordsBeforeTheAttack();
+            myHero.attack(opponent);
+            if (opponent.isAlive()) {
+                opponent.voice();
+            } else {
+                break;
+            }
+
+            System.out.println("Ход: " + opponent.name);
+            opponent.wordsBeforeTheAttack();
+            opponent.attack(myHero);
+
+            if (myHero.isAlive()) {
+                myHero.voice();
+            } else {
+                break;
+            }
+            round++;
+
+            System.out.println("Состояние после раунда №" + round + ":");
+            System.out.println(myHero.name + ":" + myHero.getHealth());
+            System.out.println(opponent.name + ":" + opponent.getHealth());
+        }
+        Hero winner, loser;
+        if (myHero.isAlive()) {
+            winner = myHero;
+            loser = opponent;
+        } else {
+            winner = opponent;
+            loser = myHero;
+        }
+
+        // Выводим результаты битвы
+        System.out.println(" ПОБЕДИТЕЛЬ: " + winner.name + "!");
+        winner.wordsOfThreat();
+        loser.theLossWords();
+
     }
 }
