@@ -79,11 +79,14 @@ public class Game {
         System.out.println("5. " + rogueOne.name + " (РАЗБОЙНИК)");
         System.out.println("6. " + rogueTwo.name + " (РАЗБОЙНИК)");
 
-        Hero opponent;
-        scanner.nextInt();
+        System.out.println();
+        System.out.println("Выберите себе врага: ");
 
-        if (choice >= 1 && choice <= 6) {
-            switch (choice) {
+        int opponentChoice = scanner.nextInt();
+        scanner.nextLine();
+
+        Hero opponent;
+        switch (opponentChoice) {
                 case 1:
                     opponent = warriorOne;
                     break;
@@ -102,47 +105,14 @@ public class Game {
                 case 6:
                     opponent = rogueTwo;
                     break;
-                default:
-                    System.out.println("Неверный выбор! Выбран герой по умолчанию (Артур).");
-                    opponent = warriorOne;
-            }
-            System.out.println("Вы выбрали: " + opponent.name);
-            System.out.println();
-        } else {
-            System.out.println("Ошибка! Введите число от 1 до 6.");
-            System.out.println();
-            scanner.next();
+            default:
+                System.out.println("Неверный выбор! Выбран случайный противник (Фростморн).");
+                opponent = warriorTwo;
         }
+        System.out.println("Ваш противник: " + opponent.name);
+        System.out.println();
+        }
+
     }
 
-    public static void getVoice(Hero hero) {
-        hero.voice();
-    }
 
-    public static void attack(Hero attackHero, Hero targetHero) {
-        System.out.println("======БИТВА НАЧИНАЕТСЯ======");
-        System.out.println();
-        System.out.println(attackHero.name + " ПРОТИВ " + targetHero.name);
-        System.out.println("Первый ход: " + attackHero.name);
-        attackHero.wordsBeforeTheAttack();
-        attackHero.attack(targetHero);
-        targetHero.voice();
-        attackHero.voice();
-        targetHero.theLossWords();
-        System.out.println();
-
-        System.out.println("Второй ход: " + targetHero.name);
-        targetHero.attack(attackHero);
-        System.out.println();
-        targetHero.voice();
-        attackHero.voice();
-        attackHero.theLossWords();
-
-        System.out.println("Второй ход: " + attackHero.name);
-        attackHero.attack(targetHero);
-        attackHero.voice();
-        targetHero.voice();
-        attackHero.wordsOfThreat();
-        System.out.println("Победитель битвы: " + attackHero.name);
-    }
-}
