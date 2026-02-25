@@ -38,7 +38,7 @@ public class Game {
         int choice = scanner.nextInt();
         scanner.nextLine();
 
-        Hero myHero;
+        Hero myHero = null;
 
         if (choice >= 1 && choice <= 6) {
             switch (choice) {
@@ -87,32 +87,38 @@ public class Game {
 
         Hero opponent;
         switch (opponentChoice) {
-                case 1:
-                    opponent = warriorOne;
-                    break;
-                case 2:
-                    opponent = warriorTwo;
-                    break;
-                case 3:
-                    opponent = mageOne;
-                    break;
-                case 4:
-                    opponent = mageTwo;
-                    break;
-                case 5:
-                    opponent = rogueOne;
-                    break;
-                case 6:
-                    opponent = rogueTwo;
-                    break;
+            case 1:
+                opponent = warriorOne;
+                break;
+            case 2:
+                opponent = warriorTwo;
+                break;
+            case 3:
+                opponent = mageOne;
+                break;
+            case 4:
+                opponent = mageTwo;
+                break;
+            case 5:
+                opponent = rogueOne;
+                break;
+            case 6:
+                opponent = rogueTwo;
+                break;
             default:
                 System.out.println("Неверный выбор! Выбран случайный противник (Фростморн).");
                 opponent = warriorTwo;
         }
         System.out.println("Ваш противник: " + opponent.name);
         System.out.println();
-        }
 
+        attack(myHero, opponent);
+        scanner.close();
     }
 
-
+    public static void attack(Hero myHero, Hero opponent) {
+        System.out.println("-----БИТВА НАЧИНАЕТСЯ-----");
+        System.out.print("Сражаются: " + myHero.name + " Количество здоровья: " + myHero.health + " и ");
+        System.out.println(opponent.name + " Количество здоровья: " + opponent.health);
+    }
+}
