@@ -160,7 +160,6 @@ public class Game {
             loser = myHero;
         }
 
-        // Выводим результаты битвы
         System.out.println(" ПОБЕДИТЕЛЬ: " + winner.name + "!");
         winner.wordsOfThreat();
         loser.theLossWords();
