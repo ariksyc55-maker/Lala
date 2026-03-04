@@ -8,11 +8,10 @@ public class Rogue extends Hero {
          this.name = name;
          this.health = health;
          this.power = power;
-         voice();
      }
 
     public void attack(Hero target) {
-        System.out.println(this.name + ": Делает внезапную атаку" + target.name);
+        System.out.println(this.name + ": Делает внезапную атаку " + target.name);
         target.takeDamage(this.power);
     }
 
@@ -20,6 +19,6 @@ public class Rogue extends Hero {
         System.out.println(this.name + " Я разогнался");
     }
     public void wordsBeforeTheAttack() {
-        System.out.println(this.name + ": атакует");
+        System.out.println(this.name + ": Готовится нанести удар");
     }
 }

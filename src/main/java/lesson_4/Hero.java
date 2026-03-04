@@ -32,9 +32,9 @@ public class Hero {
     }
 
     public void theLossWords() {
-        if (this.health == 0) {
+        if (this.health <= 0) {
             System.out.println(this.name + ": Я пал в бою, это был честный поединок...");
-        } else if (this.health >= 0) {
+        } else {
             System.out.println(this.name + ": Я ранен, но могу продолжать сражаться!");
         }
     }
