@@ -27,6 +27,7 @@ public class Game {
         heroes[3] = warriorTwo;
         heroes[4] = rogueOne;
         heroes[5] = rogueTwo;
+
         int choice = 0;
         while (choice < 1 || choice > heroes.length) {
             System.out.println("Выберите героя для сражения: ");
@@ -37,6 +38,7 @@ public class Game {
         Hero firstHero = heroes[choice - 1];
         System.out.println("Вы выбрали: " + firstHero.name);
         System.out.println();
+
         choice = 0;
         while (choice < 1 || choice > heroes.length) {
             System.out.println("Выберите себе врага: ");
