@@ -1,10 +1,10 @@
 package lesson_4;
 
+import java.util.Scanner;
+
 import lesson_4.hero.Mage;
 import lesson_4.hero.Rogue;
 import lesson_4.hero.Warrior;
-
-import java.util.Scanner;
 
 public class Game {
     public static void main(String[] args) {
@@ -14,105 +14,40 @@ public class Game {
         System.out.println();
 
         Warrior warriorOne = new Warrior("Артур", 200, 45);
-
         Warrior warriorTwo = new Warrior("Фростморн", 200, 40);
-
         Mage mageOne = new Mage("Ягерместер", 100, 50);
-
         Mage mageTwo = new Mage("Ильестр", 120, 45);
-
         Rogue rogueOne = new Rogue("Берсек", 120, 50);
-
         Rogue rogueTwo = new Rogue("Брианна", 150, 40);
 
-        System.out.println("1. " + warriorOne.name + " (ВОИН)");
-        System.out.println("2. " + warriorTwo.name + " (ВОИН)");
-        System.out.println("3. " + mageOne.name + " (МАГ)");
-        System.out.println("4. " + mageTwo.name + " (МАГ)");
-        System.out.println("5. " + rogueOne.name + " (РАЗБОЙНИК)");
-        System.out.println("6. " + rogueTwo.name + " (РАЗБОЙНИК)");
-
-        System.out.println();
-        System.out.println("Выберите героя для сражения: ");
-
-        int choice = scanner.nextInt();
-        scanner.nextLine();
-
-        Hero myHero = null;
-
-        if (choice >= 1 && choice <= 6) {
-            switch (choice) {
-                case 1:
-                    myHero = warriorOne;
-                    break;
-                case 2:
-                    myHero = warriorTwo;
-                    break;
-                case 3:
-                    myHero = mageOne;
-                    break;
-                case 4:
-                    myHero = mageTwo;
-                    break;
-                case 5:
-                    myHero = rogueOne;
-                    break;
-                case 6:
-                    myHero = rogueTwo;
-                    break;
-                default:
-                    System.out.println("Неверный выбор! Выбран герой по умолчанию (Артур).");
-                    myHero = warriorOne;
-            }
-            System.out.println("Вы выбрали: " + myHero.name);
+        Hero[] heroes = new Hero[6];
+        heroes[0] = mageOne;
+        heroes[1] = mageTwo;
+        heroes[2] = warriorOne;
+        heroes[3] = warriorTwo;
+        heroes[4] = rogueOne;
+        heroes[5] = rogueTwo;
+        int choice = 0;
+        while (choice < 1 || choice > heroes.length) {
+            System.out.println("Выберите героя для сражения: ");
+            printAllHeroes(heroes);
             System.out.println();
-        } else {
-            System.out.println("Ошибка! Введите число от 1 до 6.");
-            System.out.println();
-            scanner.next();
+            choice = scanner.nextInt();
         }
-
-        System.out.println("1. " + warriorOne.name + " (ВОИН)");
-        System.out.println("2. " + warriorTwo.name + " (ВОИН)");
-        System.out.println("3. " + mageOne.name + " (МАГ)");
-        System.out.println("4. " + mageTwo.name + " (МАГ)");
-        System.out.println("5. " + rogueOne.name + " (РАЗБОЙНИК)");
-        System.out.println("6. " + rogueTwo.name + " (РАЗБОЙНИК)");
-
+        Hero firstHero = heroes[choice - 1];
+        System.out.println("Вы выбрали: " + firstHero.name);
         System.out.println();
-        System.out.println("Выберите себе врага: ");
-
-        int opponentChoice = scanner.nextInt();
-        scanner.nextLine();
-
-        Hero opponent;
-        switch (opponentChoice) {
-            case 1:
-                opponent = warriorOne;
-                break;
-            case 2:
-                opponent = warriorTwo;
-                break;
-            case 3:
-                opponent = mageOne;
-                break;
-            case 4:
-                opponent = mageTwo;
-                break;
-            case 5:
-                opponent = rogueOne;
-                break;
-            case 6:
-                opponent = rogueTwo;
-                break;
-            default:
-                System.out.println("Неверный выбор! Выбран случайный противник (Фростморн).");
-                opponent = warriorTwo;
+        choice = 0;
+        while (choice < 1 || choice > heroes.length) {
+            System.out.println("Выберите себе врага: ");
+            printAllHeroes(heroes);
+            System.out.println();
+            choice = scanner.nextInt();
         }
+        Hero opponent = heroes[choice - 1];
         System.out.println("Ваш противник: " + opponent.name);
         System.out.println();
-
-        attack(myHero, opponent);
+        attack(firstHero, opponent);
         scanner.close();
     }
 
@@ -125,7 +60,7 @@ public class Game {
 
         int round = 1;
 
-        while (myHero.isAlive() && opponent.isAlive()){
+        while (myHero.isAlive() && opponent.isAlive()) {
             System.out.println("----- РАУНД " + round + "-----");
 
             System.out.println("Ход: " + myHero.name);
@@ -148,8 +83,8 @@ public class Game {
             }
 
             System.out.println("Состояние после раунда №" + round + ":");
-            System.out.println(myHero.name + ":" + myHero.getHealth());
-            System.out.println(opponent.name + ":" + opponent.getHealth());
+            System.out.println(myHero.name + ":" + myHero.health);
+            System.out.println(opponent.name + ":" + opponent.health);
 
             round++;
         }
@@ -166,5 +101,11 @@ public class Game {
         winner.wordsOfThreat();
         loser.theLossWords();
 
+    }
+
+    public static void printAllHeroes(Hero[] heroes) {
+        for (int i = 0; i < heroes.length; i++) {
+            System.out.println(i + 1 + ". " + heroes[i].name + " " + heroes[i].clazz);
+        }
     }
 }
