@@ -8,6 +8,7 @@ public class Rogue extends Hero {
          this.name = name;
          this.health = health;
          this.power = power;
+         voice();
      }
 
     public void attack(Hero target) {
