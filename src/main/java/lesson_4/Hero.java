@@ -14,7 +14,9 @@ public class Hero {
     public void theStandardAttack(Hero targetHero){
         targetHero.takeDamage(power);
     }
-
+    public static void theStrongestAttack(Hero targetHero) {
+        targetHero.takeDamage(targetHero.power);
+    }
 
     public int getHealth() {
         return this.health;

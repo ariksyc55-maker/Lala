@@ -14,8 +14,10 @@ public class Mage extends Hero {
         System.out.println(this.name + ": Выпуская огненный шар в " + target.name);
         target.takeDamage(this.power);
     }
-    public static void theStrongestAttack(Hero target){
-
+    public static void theStrongestAttack(Hero targetHero){
+        int maxPower = 90;
+        targetHero.takeDamage(maxPower);
+        System.out.println(targetHero.name + " нанес сильнейший удар " + maxPower + " урона.");
     }
     public void wordsOfThreat(){
         System.out.println(" Я " + this.name + " сожгу тебя до тла");
