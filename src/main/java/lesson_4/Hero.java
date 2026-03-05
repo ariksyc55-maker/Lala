@@ -11,7 +11,7 @@ public class Hero {
         System.out.println(" -У меня здоровье " + health + " и моя сила " + power);
         System.out.println();
     }
-    public void attack(Hero targetHero){
+    public void theStandardAttack(Hero targetHero){
         targetHero.takeDamage(power);
     }
 

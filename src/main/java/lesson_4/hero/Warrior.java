@@ -10,9 +10,12 @@ public class Warrior extends Hero {
         this.power = power;
         voice();
     }
-    public void attack(Hero target){
+    public void theStandardAttack(Hero target){
         System.out.println(this.name + " наносит удар мечом " + target.name);
         target.takeDamage(this.power);
+    }
+    public static void theStrongestAttack(Hero target){
+
     }
     public void wordsOfThreat(){
         System.out.println(this.name + ": Почуствую мою мощь");

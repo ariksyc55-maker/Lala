@@ -67,7 +67,7 @@ public class Game {
 
             System.out.println("Ход: " + myHero.name);
             myHero.wordsBeforeTheAttack();
-            myHero.attack(opponent);
+            myHero.theStandardAttack(opponent);
             if (opponent.isAlive()) {
                 opponent.voice();
             } else {
@@ -76,7 +76,7 @@ public class Game {
 
             System.out.println("Ход: " + opponent.name);
             opponent.wordsBeforeTheAttack();
-            opponent.attack(myHero);
+            opponent.theStandardAttack(myHero);
 
             if (myHero.isAlive()) {
                 myHero.voice();

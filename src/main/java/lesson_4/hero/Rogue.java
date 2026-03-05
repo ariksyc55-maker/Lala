@@ -11,11 +11,13 @@ public class Rogue extends Hero {
          voice();
      }
 
-    public void attack(Hero target) {
+    public void theStandardAttack(Hero target) {
         System.out.println(this.name + ": Делает внезапную атаку " + target.name);
         target.takeDamage(this.power);
     }
+    public static void theStrongestAttack(Hero target){
 
+    }
     public void wordsOfThreat() {
         System.out.println(this.name + " Я разогнался");
     }

@@ -10,9 +10,12 @@ public class Mage extends Hero {
         this.power = power;
         voice();
     }
-    public void attack(Hero target){
+    public void theStandardAttack(Hero target){
         System.out.println(this.name + ": Выпуская огненный шар в " + target.name);
         target.takeDamage(this.power);
+    }
+    public static void theStrongestAttack(Hero target){
+
     }
     public void wordsOfThreat(){
         System.out.println(" Я " + this.name + " сожгу тебя до тла");
