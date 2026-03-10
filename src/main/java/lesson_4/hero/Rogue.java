@@ -15,7 +15,7 @@ public class Rogue extends Hero {
         System.out.println(this.name + ": Делает внезапную атаку " + target.name);
         target.takeDamage(this.power);
     }
-    public static void theStrongestAttack(Hero targetHero){
+    public void theStrongestAttack(Hero targetHero){
          int maxPower = 70;
         targetHero.takeDamage(maxPower);
          System.out.println(targetHero.name + " нанес сильнейший удар " + maxPower + " урона.");

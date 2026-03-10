@@ -14,8 +14,10 @@ public class Hero {
     public void theStandardAttack(Hero targetHero){
         targetHero.takeDamage(power);
     }
-    public static void theStrongestAttack(Hero targetHero) {
-        targetHero.takeDamage(targetHero.power);
+    public void theStrongestAttack(Hero targetHero) {
+        int maxPower = this.power * 2;
+        targetHero.takeDamage(maxPower);
+        System.out.println(this.name + " наносит сильнейший удар! Урон: " + maxPower);
     }
 
     public int getHealth() {

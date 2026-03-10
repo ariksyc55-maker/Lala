@@ -14,7 +14,7 @@ public class Warrior extends Hero {
         System.out.println(this.name + " наносит удар мечом " + target.name);
         target.takeDamage(this.power);
     }
-    public static void theStrongestAttack(Hero targetHero){
+    public void theStrongestAttack(Hero targetHero){
         int maxPower = 60;
         targetHero.takeDamage(maxPower);
         System.out.println(targetHero.name + " нанес сильнейший удар " + maxPower + " урона.");

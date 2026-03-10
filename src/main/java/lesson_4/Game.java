@@ -64,6 +64,9 @@ public class Game {
 
         while (myHero.isAlive() && opponent.isAlive()) {
             System.out.println("----- РАУНД " + round + "-----");
+
+            System.out.println("Нажмите Enter для атаки" + myHero);
+
             System.out.println("Ход: " + myHero.name);
             myHero.sayBeforeAttack();
             myHero.theStandardAttack(opponent);
@@ -86,6 +89,7 @@ public class Game {
             System.out.println("Нажмите Enter для продолжения...");
             System.out.println();
 
+
             round++;
         }
         Hero winner, loser;
@@ -102,9 +106,9 @@ public class Game {
         loser.theLossWords();
     }
 
-        public static void printAllHeroes(Hero[] heroes) {
-            for (int i = 0; i < heroes.length; i++) {
-                System.out.println((i + 1) + ". " + heroes[i].name + " " + heroes[i].clazz);
-            }
+    public static void printAllHeroes(Hero[] heroes) {
+        for (int i = 0; i < heroes.length; i++) {
+            System.out.println((i + 1) + ". " + heroes[i].name + " " + heroes[i].clazz);
         }
     }
+}
