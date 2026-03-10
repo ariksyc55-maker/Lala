@@ -49,23 +49,24 @@ public class Game {
         Hero opponent = heroes[choice - 1];
         System.out.println("Ваш противник: " + opponent.name);
         System.out.println();
-        attack(firstHero, opponent);
+        attack(firstHero, opponent, scanner);
         scanner.close();
     }
 
-    public static void attack(Hero myHero, Hero opponent) {
+    public static void attack(Hero myHero, Hero opponent, Scanner scanner) {
         System.out.println("-----БИТВА НАЧИНАЕТСЯ-----");
-        System.out.println("Сражаются: " + myHero.name + "." + " Количество здоровья: " + myHero.health);
-        System.out.println("и");
-        System.out.println(opponent.name + "." + " Количество здоровья: " + opponent.health);
+        System.out.println("Сражаются: " + myHero.name + " (здоровье: " + myHero.health + ")");
+        System.out.println("против " + opponent.name + " (здоровье: " + opponent.health + ")");
         System.out.println();
 
         int round = 1;
 
         while (myHero.isAlive() && opponent.isAlive()) {
-            System.out.println("----- РАУНД " + round + "-----");
+            System.out.println("----- РАУНД " + round + " -----");
 
-            System.out.println("Нажмите Enter для атаки" + myHero);
+            // ОЖИДАНИЕ ВВОДА: теперь работает корректно
+            System.out.println("Нажмите Enter для атаки " + myHero.name);
+            scanner.nextLine();
 
             System.out.println("Ход: " + myHero.name);
             myHero.sayBeforeAttack();
@@ -83,15 +84,16 @@ public class Game {
                 break;
             }
 
-            System.out.println("Состояние после раунда №" + round + ":");
+            System.out.println("Состояние после раунда № " + round + ":");
             System.out.println(myHero.name + ": " + myHero.health);
             System.out.println(opponent.name + ": " + opponent.health);
             System.out.println("Нажмите Enter для продолжения...");
-            System.out.println();
-
+            scanner.nextLine(); // Ожидание перед следующим раундом
 
             round++;
         }
+
+        // Определение победителя и проигравшего
         Hero winner, loser;
         if (myHero.isAlive()) {
             winner = myHero;
