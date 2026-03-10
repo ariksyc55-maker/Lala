@@ -40,7 +40,7 @@ public class Hero {
             System.out.println(this.name + ": Я ранен, но могу продолжать сражаться!");
         }
     }
-    public void wordsBeforeTheAttack(){
+    public void sayBeforeAttack(){
     }
     public void wordsOfThreat (){
         System.out.println(this.name);

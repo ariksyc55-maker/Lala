@@ -20,9 +20,9 @@ public class Mage extends Hero {
         System.out.println(targetHero.name + " нанес сильнейший удар " + maxPower + " урона.");
     }
     public void wordsOfThreat(){
-        System.out.println(" Я " + this.name + " сожгу тебя до тла");
+        System.out.println(" Я " + this.name + " сожгу тебя дотла");
     }
-    public void wordsBeforeTheAttack() {
+    public void sayBeforeAttack() {
         System.out.println(this.name + ": создает атакуещие заклинание");
     }
 }

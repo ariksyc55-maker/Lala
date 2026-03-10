@@ -4,7 +4,7 @@ import lesson_4.Hero;
 
 public class Rogue extends Hero {
      public Rogue(String name, int health, int power){
-         clazz = " Разбойник";
+         clazz = "Разбойник";
          this.name = name;
          this.health = health;
          this.power = power;
@@ -23,7 +23,7 @@ public class Rogue extends Hero {
     public void wordsOfThreat() {
         System.out.println(this.name + " Я разогнался");
     }
-    public void wordsBeforeTheAttack() {
+    public void sayBeforeAttack() {
         System.out.println(this.name + ": Готовится нанести удар");
     }
 }

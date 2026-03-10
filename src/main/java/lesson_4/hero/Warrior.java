@@ -20,9 +20,9 @@ public class Warrior extends Hero {
         System.out.println(targetHero.name + " нанес сильнейший удар " + maxPower + " урона.");
     }
     public void wordsOfThreat(){
-        System.out.println(this.name + ": Почуствую мою мощь");
+        System.out.println(this.name + ": Почуствуй мою мощь");
     }
-    public void wordsBeforeTheAttack() {
+    public void sayBeforeAttack() {
         System.out.println(this.name + ": атакует");
     }
 }

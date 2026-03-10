@@ -55,8 +55,8 @@ public class Game {
 
     public static void attack(Hero myHero, Hero opponent) {
         System.out.println("-----БИТВА НАЧИНАЕТСЯ-----");
-        System.out.print("Сражаются: " + myHero.name + "." + " Количество здоровья: " + myHero.health);
-        System.out.println(" и ");
+        System.out.println("Сражаются: " + myHero.name + "." + " Количество здоровья: " + myHero.health);
+        System.out.println("и");
         System.out.println(opponent.name + "." + " Количество здоровья: " + opponent.health);
         System.out.println();
 
@@ -64,29 +64,27 @@ public class Game {
 
         while (myHero.isAlive() && opponent.isAlive()) {
             System.out.println("----- РАУНД " + round + "-----");
-
             System.out.println("Ход: " + myHero.name);
-            myHero.wordsBeforeTheAttack();
+            myHero.sayBeforeAttack();
             myHero.theStandardAttack(opponent);
-            if (opponent.isAlive()) {
-                opponent.voice();
-            } else {
+            System.out.println();
+            if (!opponent.isAlive()) {
                 break;
             }
 
             System.out.println("Ход: " + opponent.name);
-            opponent.wordsBeforeTheAttack();
+            opponent.sayBeforeAttack();
             opponent.theStandardAttack(myHero);
-
-            if (myHero.isAlive()) {
-                myHero.voice();
-            } else {
+            System.out.println();
+            if (!myHero.isAlive()) {
                 break;
             }
 
             System.out.println("Состояние после раунда №" + round + ":");
-            System.out.println(myHero.name + ":" + myHero.health);
-            System.out.println(opponent.name + ":" + opponent.health);
+            System.out.println(myHero.name + ": " + myHero.health);
+            System.out.println(opponent.name + ": " + opponent.health);
+            System.out.println("Нажмите Enter для продолжения...");
+            System.out.println();
 
             round++;
         }
@@ -102,12 +100,11 @@ public class Game {
         System.out.println(" ПОБЕДИТЕЛЬ: " + winner.name + "!");
         winner.wordsOfThreat();
         loser.theLossWords();
-
     }
 
-    public static void printAllHeroes(Hero[] heroes) {
-        for (int i = 0; i < heroes.length; i++) {
-            System.out.println(i + 1 + ". " + heroes[i].name + " " + heroes[i].clazz);
+        public static void printAllHeroes(Hero[] heroes) {
+            for (int i = 0; i < heroes.length; i++) {
+                System.out.println((i + 1) + ". " + heroes[i].name + " " + heroes[i].clazz);
+            }
         }
     }
-}
