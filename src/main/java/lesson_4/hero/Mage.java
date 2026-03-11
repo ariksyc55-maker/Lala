@@ -8,6 +8,8 @@ public class Mage extends Hero {
         this.name = name;
         this.health = health;
         this.power = power;
+        this.maxStrongestAttacks = 2;
+        this.usedStrongestAttacks = 0;
         voice();
     }
 
@@ -17,8 +19,13 @@ public class Mage extends Hero {
     }
 
     public void theStrongestAttack(Hero targetHero) {
+        if (usedStrongestAttacks >= maxStrongestAttacks) {
+            System.out.println(this.name + " не может использовать сильнейшую атаку - закончились снаряды");
+            return;
+        }
         int maxPower = 50;
         targetHero.takeDamage(maxPower);
+        usedStrongestAttacks++;
         System.out.println(targetHero.name + " призывает сильнейшее заклинание огня: " + maxPower + " урона.");
     }
 

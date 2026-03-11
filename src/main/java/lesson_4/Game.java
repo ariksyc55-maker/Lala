@@ -72,7 +72,11 @@ public class Game {
 
             System.out.println("Ход: " + myHero.name);
             System.out.println("1 - Обычная атака");
-            System.out.println("2 - Сильнейшая атака");
+            if (myHero.usedStrongestAttacks < myHero.maxStrongestAttacks){
+                System.out.println("2 - сильнейшая атака (осталось: " + (myHero.maxStrongestAttacks - myHero.usedStrongestAttacks) + ")");
+            } else {
+                System.out.println("Сильнейшая атака больше не доступна (заряды закончились)");
+            }
 
             int attackChoice = 0;
             while (attackChoice != 1 && attackChoice != 2) {
@@ -85,8 +89,12 @@ public class Game {
                 myHero.theStandardAttack(opponent);
                 System.out.println(myHero.name + " - Использовал стандартную атаку");
             } else {
-                myHero.theStrongestAttack(opponent);
-                System.out.println(myHero.name + " - Использовал сильнейшую атаку");
+                if (myHero.usedStrongestAttacks < myHero.maxStrongestAttacks) {
+                    myHero.theStrongestAttack(opponent);
+                    System.out.println(myHero.name + " - Использовал сильнейшую атаку");
+                } else {
+                    System.out.println("Невозможно выполнить сильнейшую атаку! Заряды закончились.");
+                }
             }
             System.out.println();
             myHero.sayBeforeAttack();
@@ -95,13 +103,23 @@ public class Game {
                 break;
             }
 
-            System.out.println("Ход: " + opponent.name);
-            System.out.println("1 - Обычная атака");
-            System.out.println("2 - Сильнейшая атака");
+            if (attackChoice == 1) {
+                opponent.theStandardAttack(myHero);
+                System.out.println(opponent.name + " - Использовал стандартную атаку");
+            } else {
+                if (opponent.usedStrongestAttacks < opponent.maxStrongestAttacks) {
+                    opponent.theStrongestAttack(myHero);
+                    System.out.println(opponent.name + " - Использовал сильнейшую атаку");
+                } else {
+                    System.out.println("Противник не может выполнить сильнейшую атаку! Заряды закончились.");
+                }
+            }
+            opponent.sayBeforeAttack();
+            System.out.println();
 
             attackChoice = 0;
             while (attackChoice != 1 && attackChoice != 2) {
-                System.out.print("Ваш выбор (1 или 2): ");
+                System.out.print("Ваш выбор : ");
                 attackChoice = scanner.nextInt();
                 scanner.nextLine();
             }

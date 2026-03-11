@@ -5,6 +5,8 @@ public class Hero {
     public int power;
     public String name;
     public String clazz;
+    public int maxStrongestAttacks;
+    public int usedStrongestAttacks;
 
     public void voice() {
         System.out.println("Я представитель класса " + clazz + ". Моё имя " + name);
