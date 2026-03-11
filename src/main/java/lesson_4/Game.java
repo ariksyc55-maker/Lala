@@ -70,36 +70,36 @@ public class Game {
             System.out.println("Нажмите Enter для атаки " + myHero.name);
             scanner.nextLine();
 
-           System.out.println("Ход: " + myHero.name);
-           System.out.println("1 - Обычная атака");
-           System.out.println("2 - Сильнейшая атака");
+            System.out.println("Ход: " + myHero.name);
+            System.out.println("1 - Обычная атака");
+            System.out.println("2 - Сильнейшая атака");
 
-           int attackChoice = 0;
+            int attackChoice = 0;
             while (attackChoice != 1 && attackChoice != 2) {
                 System.out.print("Ваш выбор: ");
                 attackChoice = scanner.nextInt();
                 scanner.nextLine();
             }
 
-           if (attackChoice == 1) {
-               myHero.theStandardAttack(opponent);
-               System.out.println(myHero.name + " - Использовал стандартную атаку");
-           } else {
-               myHero.theStrongestAttack(opponent);
-               System.out.println(myHero.name + " - Использовал сильнейшую атаку");
-           }
-           System.out.println();
-           myHero.sayBeforeAttack();
+            if (attackChoice == 1) {
+                myHero.theStandardAttack(opponent);
+                System.out.println(myHero.name + " - Использовал стандартную атаку");
+            } else {
+                myHero.theStrongestAttack(opponent);
+                System.out.println(myHero.name + " - Использовал сильнейшую атаку");
+            }
+            System.out.println();
+            myHero.sayBeforeAttack();
 
-           if (!opponent.isAlive()){
-               break;
-           }
+            if (!opponent.isAlive()) {
+                break;
+            }
 
-           System.out.println("Ход: " + opponent.name);
-           System.out.println("1 - Обычная атака");
-           System.out.println("2 - Сильнейшая атака");
+            System.out.println("Ход: " + opponent.name);
+            System.out.println("1 - Обычная атака");
+            System.out.println("2 - Сильнейшая атака");
 
-           attackChoice = 0;
+            attackChoice = 0;
             while (attackChoice != 1 && attackChoice != 2) {
                 System.out.print("Ваш выбор (1 или 2): ");
                 attackChoice = scanner.nextInt();
@@ -116,7 +116,7 @@ public class Game {
             opponent.sayBeforeAttack();
             System.out.println();
 
-            if (!opponent.isAlive()){
+            if (!opponent.isAlive()) {
                 break;
             }
 

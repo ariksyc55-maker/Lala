@@ -11,9 +11,11 @@ public class Hero {
         System.out.println(" -У меня здоровье " + health + " и моя сила " + power);
         System.out.println();
     }
-    public void theStandardAttack(Hero targetHero){
+
+    public void theStandardAttack(Hero targetHero) {
         targetHero.takeDamage(power);
     }
+
     public void theStrongestAttack(Hero targetHero) {
         int maxPower = this.power * 2;
         targetHero.takeDamage(maxPower);
@@ -42,9 +44,11 @@ public class Hero {
             System.out.println(this.name + ": Я ранен, но могу продолжать сражаться!");
         }
     }
-    public void sayBeforeAttack(){
+
+    public void sayBeforeAttack() {
     }
-    public void wordsOfThreat (){
+
+    public void wordsOfThreat() {
         System.out.println(this.name);
     }
 }

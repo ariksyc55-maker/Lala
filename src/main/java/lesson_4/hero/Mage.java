@@ -3,25 +3,29 @@ package lesson_4.hero;
 import lesson_4.Hero;
 
 public class Mage extends Hero {
-    public Mage(String name, int health, int power){
+    public Mage(String name, int health, int power) {
         clazz = "Маг";
         this.name = name;
         this.health = health;
         this.power = power;
         voice();
     }
-    public void theStandardAttack(Hero target){
+
+    public void theStandardAttack(Hero target) {
         System.out.println(this.name + ": Выпуская огненный шар в " + target.name);
         target.takeDamage(this.power);
     }
-    public void theStrongestAttack(Hero targetHero){
+
+    public void theStrongestAttack(Hero targetHero) {
         int maxPower = 50;
         targetHero.takeDamage(maxPower);
         System.out.println(targetHero.name + " призывает сильнейшее заклинание огня: " + maxPower + " урона.");
     }
-    public void wordsOfThreat(){
+
+    public void wordsOfThreat() {
         System.out.println(" Я " + this.name + " сожгу тебя дотла");
     }
+
     public void sayBeforeAttack() {
         System.out.println(this.name + ": создает атакуещие заклинание");
     }
