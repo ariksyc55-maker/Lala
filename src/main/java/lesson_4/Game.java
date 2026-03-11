@@ -13,12 +13,12 @@ public class Game {
         System.out.println("----- ДОБРО ПОЖАЛОВАТЬ В ИГРУ -----");
         System.out.println();
 
-        Warrior warriorOne = new Warrior("Артур", 200, 45);
-        Warrior warriorTwo = new Warrior("Фростморн", 200, 40);
-        Mage mageOne = new Mage("Ягерместер", 100, 50);
-        Mage mageTwo = new Mage("Ильестр", 120, 45);
-        Rogue rogueOne = new Rogue("Берсек", 120, 50);
-        Rogue rogueTwo = new Rogue("Брианна", 150, 40);
+        Warrior warriorOne = new Warrior("Артур", 200, 30);
+        Warrior warriorTwo = new Warrior("Фростморн", 190, 40);
+        Mage mageOne = new Mage("Ягерместер", 130, 20);
+        Mage mageTwo = new Mage("Ильестр", 140, 30);
+        Rogue rogueOne = new Rogue("Берсек", 150, 50);
+        Rogue rogueTwo = new Rogue("Брианна", 170, 40);
 
         Hero[] heroes = new Hero[6];
         heroes[0] = mageOne;

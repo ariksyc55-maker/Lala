@@ -15,7 +15,7 @@ public class Mage extends Hero {
         target.takeDamage(this.power);
     }
     public void theStrongestAttack(Hero targetHero){
-        int maxPower = 90;
+        int maxPower = 50;
         targetHero.takeDamage(maxPower);
         System.out.println(targetHero.name + " призывает сильнейшее заклинание огня: " + maxPower + " урона.");
     }
