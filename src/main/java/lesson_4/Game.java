@@ -56,31 +56,67 @@ public class Game {
     public static void attack(Hero myHero, Hero opponent, Scanner scanner) {
         System.out.println("-----БИТВА НАЧИНАЕТСЯ-----");
         System.out.println("Сражаются: " + myHero.name + " (здоровье: " + myHero.health + ")");
-        System.out.println("против " + opponent.name + " (здоровье: " + opponent.health + ")");
+        System.out.println("против ");
+        System.out.println(opponent.name + " (здоровье: " + opponent.health + ")");
         System.out.println();
 
         int round = 1;
 
+        System.out.println("Нажмите Enter для начала боя...");
+        scanner.nextLine();
+
         while (myHero.isAlive() && opponent.isAlive()) {
             System.out.println("----- РАУНД " + round + " -----");
-
-            // ОЖИДАНИЕ ВВОДА: теперь работает корректно
             System.out.println("Нажмите Enter для атаки " + myHero.name);
             scanner.nextLine();
 
-            System.out.println("Ход: " + myHero.name);
-            myHero.sayBeforeAttack();
-            myHero.theStandardAttack(opponent);
-            System.out.println();
-            if (!opponent.isAlive()) {
-                break;
+           System.out.println("Ход: " + myHero.name);
+           System.out.println("1 - Обычная атака");
+           System.out.println("2 - Сильнейшая атака");
+
+           int attackChoice = 0;
+            while (attackChoice != 1 && attackChoice != 2) {
+                System.out.print("Ваш выбор: ");
+                attackChoice = scanner.nextInt();
+                scanner.nextLine();
             }
 
-            System.out.println("Ход: " + opponent.name);
+           if (attackChoice == 1) {
+               myHero.theStandardAttack(opponent);
+               System.out.println(myHero.name + " - Использовал стандартную атаку");
+           } else {
+               myHero.theStrongestAttack(opponent);
+               System.out.println(myHero.name + " - Использовал сильнейшую атаку");
+           }
+           System.out.println();
+           myHero.sayBeforeAttack();
+
+           if (!opponent.isAlive()){
+               break;
+           }
+
+           System.out.println("Ход: " + opponent.name);
+           System.out.println("1 - Обычная атака");
+           System.out.println("2 - Сильнейшая атака");
+
+           attackChoice = 0;
+            while (attackChoice != 1 && attackChoice != 2) {
+                System.out.print("Ваш выбор (1 или 2): ");
+                attackChoice = scanner.nextInt();
+                scanner.nextLine();
+            }
+
+            if (attackChoice == 1) {
+                opponent.theStandardAttack(myHero);
+                System.out.println(opponent.name + " - Использовал стандартную атаку");
+            } else {
+                opponent.theStrongestAttack(myHero);
+                System.out.println(opponent.name + " - Использовал сильнейшую атаку");
+            }
             opponent.sayBeforeAttack();
-            opponent.theStandardAttack(myHero);
             System.out.println();
-            if (!myHero.isAlive()) {
+
+            if (!opponent.isAlive()){
                 break;
             }
 
@@ -88,12 +124,11 @@ public class Game {
             System.out.println(myHero.name + ": " + myHero.health);
             System.out.println(opponent.name + ": " + opponent.health);
             System.out.println("Нажмите Enter для продолжения...");
-            scanner.nextLine(); // Ожидание перед следующим раундом
+            scanner.nextLine();
 
             round++;
         }
 
-        // Определение победителя и проигравшего
         Hero winner, loser;
         if (myHero.isAlive()) {
             winner = myHero;
