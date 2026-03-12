@@ -119,8 +119,11 @@ public class Game {
             if (attackChoice == 1) {
                 System.out.println(opponent.name + " - Использовал стандартную атаку");
             } else {
-                opponent.theStrongestAttack(myHero);
-                System.out.println(opponent.name + " - Использовал сильнейшую атаку");
+                if (opponent.usedStrongestAttacks < opponent.maxStrongestAttacks) {
+                    System.out.println(opponent.name + " - Использовал сильнейшую атаку");
+                } else {
+                    System.out.println("Невозможно выполнить сильнейшую атаку! Заряды закончились.");
+                }
             }
             opponent.sayBeforeAttack();
             System.out.println();
