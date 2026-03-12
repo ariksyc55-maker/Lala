@@ -101,17 +101,13 @@ public class Game {
                 break;
             }
 
-            if (attackChoice == 1) {
-                System.out.println("1 - Обычная атака");
+            System.out.println("Ход: " + opponent.name);
+            System.out.println("1 - Обычная атака");
+            if (opponent.usedStrongestAttacks < opponent.maxStrongestAttacks) {
+                System.out.println("2 - Сильнейшая атака (осталось: " + (opponent.maxStrongestAttacks - opponent.usedStrongestAttacks) + ")");
             } else {
-                if (opponent.usedStrongestAttacks < opponent.maxStrongestAttacks) {
-                    System.out.println("2 - Сильнейшая атака (осталось: " + (myHero.maxStrongestAttacks - myHero.usedStrongestAttacks) + ")");
-                } else {
-                    System.out.println("Противник не может выполнить сильнейшую атаку! Заряды закончились.");
-                }
+                System.out.println("Сильнейшая атака больше не доступна (заряды закончились)");
             }
-            opponent.sayBeforeAttack();
-            System.out.println();
 
             attackChoice = 0;
             while (attackChoice != 1 && attackChoice != 2) {
@@ -126,6 +122,7 @@ public class Game {
                 opponent.theStrongestAttack(myHero);
                 System.out.println(opponent.name + " - Использовал сильнейшую атаку");
             }
+            opponent.sayBeforeAttack();
             System.out.println();
 
             if (!opponent.isAlive()) {
