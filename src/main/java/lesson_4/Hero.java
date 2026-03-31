@@ -14,11 +14,15 @@ public class Hero {
         System.out.println();
     }
 
-    public void theStandardAttack(Hero targetHero) {
+    public void performStandardAttack(Hero targetHero) {
         targetHero.takeDamage(power);
     }
 
-    public void theStrongestAttack(Hero targetHero) {
+    public int getAvailableStrongAttacks() {
+        return this.maxStrongestAttacks - this.usedStrongestAttacks;
+    }
+
+    public void performStrongestAttack(Hero targetHero) {
         int maxPower = this.power * 2;
         targetHero.takeDamage(maxPower);
         System.out.println(this.name + " наносит сильнейший удар! Урон: " + maxPower);
@@ -39,7 +43,7 @@ public class Hero {
         }
     }
 
-    public void theLossWords() {
+    public void reactToDefeat() {
         if (this.health <= 0) {
             System.out.println(this.name + ": Я пал в бою, это был честный поединок...");
         } else {
@@ -47,10 +51,10 @@ public class Hero {
         }
     }
 
-    public void sayBeforeAttack() {
+    public void announceAttack() {
     }
 
-    public void wordsOfThreat() {
+    public void declareVictory() {
         System.out.println(this.name);
     }
 }

@@ -13,12 +13,12 @@ public class Mage extends Hero {
         voice();
     }
 
-    public void theStandardAttack(Hero target) {
+    public void performStandardAttack(Hero target) {
         System.out.println(this.name + ": Выпуская огненный шар в " + target.name);
         target.takeDamage(this.power);
     }
 
-    public void theStrongestAttack(Hero targetHero) {
+    public void performStrongestAttack(Hero targetHero) {
         if (usedStrongestAttacks >= maxStrongestAttacks) {
             System.out.println(this.name + " не может использовать сильнейшую атаку - закончились снаряды");
             return;
@@ -29,11 +29,11 @@ public class Mage extends Hero {
         System.out.println(targetHero.name + " призывает сильнейшее заклинание огня: " + maxPower + " урона.");
     }
 
-    public void wordsOfThreat() {
+    public void declareVictory() {
         System.out.println(" Я " + this.name + " сожгу тебя дотла");
     }
 
-    public void sayBeforeAttack() {
+    public void announceAttack() {
         System.out.println(this.name + ": создает атакуещие заклинание");
     }
 }

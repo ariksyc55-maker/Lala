@@ -13,12 +13,12 @@ public class Warrior extends Hero {
         voice();
     }
 
-    public void theStandardAttack(Hero target) {
+    public void performStandardAttack(Hero target) {
         System.out.println(this.name + " наносит удар мечом " + target.name);
         target.takeDamage(this.power);
     }
 
-    public void theStrongestAttack(Hero targetHero) {
+    public void performStrongestAttack(Hero targetHero) {
         if (usedStrongestAttacks >= maxStrongestAttacks) {
             System.out.println(this.name + " не может использовать сильнейшую атаку - закончились снаряды");
             return;
@@ -29,11 +29,11 @@ public class Warrior extends Hero {
         System.out.println(targetHero.name + " нанес разрушвющий удар " + maxPower + " урона.");
     }
 
-    public void wordsOfThreat() {
+    public void declareVictory() {
         System.out.println(this.name + ": Почуствуй мою мощь");
     }
 
-    public void sayBeforeAttack() {
+    public void announceAttack() {
         System.out.println(this.name + ": атакует");
     }
 }

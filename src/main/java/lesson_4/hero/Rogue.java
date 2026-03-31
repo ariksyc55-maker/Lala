@@ -13,12 +13,12 @@ public class Rogue extends Hero {
         voice();
     }
 
-    public void theStandardAttack(Hero target) {
+    public void performStandardAttack(Hero target) {
         System.out.println(this.name + ": Делает внезапную атаку " + target.name);
         target.takeDamage(this.power);
     }
 
-    public void theStrongestAttack(Hero targetHero) {
+    public void performStrongestAttack(Hero targetHero) {
         if (usedStrongestAttacks >= maxStrongestAttacks) {
             System.out.println(this.name + " не может использовать сильнейшую атаку - закончились снаряды");
             return;
@@ -29,11 +29,11 @@ public class Rogue extends Hero {
         System.out.println(targetHero.name + " наносит скрытый удар: " + maxPower + " урона.");
     }
 
-    public void wordsOfThreat() {
+    public void declareVictory() {
         System.out.println(this.name + " Я разогнался");
     }
 
-    public void sayBeforeAttack() {
+    public void announceAttack() {
         System.out.println(this.name + ": Готовится нанести удар");
     }
 }

@@ -1,7 +1,8 @@
 package lesson_4;
 
 import java.util.Scanner;
-
+import java.util.ArrayList;
+import java.util.List;
 import lesson_4.hero.Mage;
 import lesson_4.hero.Rogue;
 import lesson_4.hero.Warrior;
@@ -20,33 +21,36 @@ public class Game {
         Rogue rogueOne = new Rogue("Берсек", 150, 50);
         Rogue rogueTwo = new Rogue("Брианна", 170, 40);
 
-        Hero[] heroes = new Hero[6];
-        heroes[0] = mageOne;
-        heroes[1] = mageTwo;
-        heroes[2] = warriorOne;
-        heroes[3] = warriorTwo;
-        heroes[4] = rogueOne;
-        heroes[5] = rogueTwo;
+        List<Hero> heroes = new ArrayList<>();
+        heroes.add(mageOne);
+        heroes.add(mageTwo);
+        heroes.add(warriorOne);
+        heroes.add(warriorTwo);
+        heroes.add(rogueOne);
+        heroes.add(rogueTwo);
 
         int choice = 0;
-        while (choice < 1 || choice > heroes.length) {
+        while (choice < 1 || choice > heroes.size()) {
             System.out.println("Выберите героя для сражения: ");
             printAllHeroes(heroes);
             System.out.println();
             choice = scanner.nextInt();
+            scanner.nextLine();
         }
-        Hero firstHero = heroes[choice - 1];
+        int firstHeroIndex = choice - 1;
+        Hero firstHero = heroes.get(firstHeroIndex);
         System.out.println("Вы выбрали: " + firstHero.name);
         System.out.println();
 
         choice = 0;
-        while (choice < 1 || choice > heroes.length) {
+        while (choice < 1 || choice > heroes.size() || choice - 1 == firstHeroIndex) {
             System.out.println("Выберите себе врага: ");
             printAllHeroes(heroes);
             System.out.println();
             choice = scanner.nextInt();
+            scanner.nextLine();
         }
-        Hero opponent = heroes[choice - 1];
+        Hero opponent = heroes.get(choice - 1);
         System.out.println("Ваш противник: " + opponent.name);
         System.out.println();
         attack(firstHero, opponent, scanner);
@@ -73,9 +77,9 @@ public class Game {
             System.out.println("Ход: " + myHero.name);
             System.out.println("1 - Обычная атака");
             if (myHero.usedStrongestAttacks < myHero.maxStrongestAttacks) {
-                System.out.println("2 - Сильнейшая атака (осталось: " + (myHero.maxStrongestAttacks - myHero.usedStrongestAttacks) + ")");
+                System.out.println("2 - Сильнейшая атака (осталось: " + (myHero.getAvailableStrongAttacks()) + ")");
             } else {
-                System.out.println("Сильнейшая атака больше не доступна (заряды закончились)");
+                System.out.println("2 - Сильнейшая атака больше не доступна (заряды закончились)");
             }
 
             int attackChoice = 0;
@@ -87,16 +91,16 @@ public class Game {
 
             if (attackChoice == 1) {
                 System.out.println(myHero.name + " - Использовал стандартную атаку");
-                myHero.theStandardAttack(opponent);
+                myHero.performStandardAttack(opponent);
             } else {
                 if (myHero.usedStrongestAttacks < myHero.maxStrongestAttacks) {
                     System.out.println(myHero.name + " - Использовал сильнейшую атаку");
-                    myHero.theStrongestAttack(opponent);
+                    myHero.performStrongestAttack(opponent);
                 } else {
                     System.out.println("Невозможно выполнить сильнейшую атаку! Заряды закончились.");
                 }
             }
-            myHero.sayBeforeAttack();
+            myHero.announceAttack();
             System.out.println();
 
             if (!opponent.isAlive()) {
@@ -106,7 +110,7 @@ public class Game {
             System.out.println("Ход: " + opponent.name);
             System.out.println("1 - Обычная атака");
             if (opponent.usedStrongestAttacks < opponent.maxStrongestAttacks) {
-                System.out.println("2 - Сильнейшая атака (осталось: " + (opponent.maxStrongestAttacks - opponent.usedStrongestAttacks) + ")");
+                System.out.println("2 - Сильнейшая атака (осталось: " + (opponent.getAvailableStrongAttacks()) + ")");
             } else {
                 System.out.println("Сильнейшая атака больше не доступна (заряды закончились)");
             }
@@ -120,16 +124,16 @@ public class Game {
 
             if (attackChoice == 1) {
                 System.out.println(opponent.name + " - Использовал стандартную атаку");
-                opponent.theStandardAttack(myHero);
+                opponent.performStandardAttack(myHero);
             } else {
                 if (opponent.usedStrongestAttacks < opponent.maxStrongestAttacks) {
                     System.out.println(opponent.name + " - Использовал сильнейшую атаку");
-                    opponent.theStrongestAttack(myHero);
+                    opponent.performStrongestAttack(myHero);
                 } else {
                     System.out.println("Невозможно выполнить сильнейшую атаку! Заряды закончились.");
                 }
             }
-            opponent.sayBeforeAttack();
+            opponent.announceAttack();
             System.out.println();
 
             if (!opponent.isAlive()) {
@@ -155,13 +159,15 @@ public class Game {
         }
 
         System.out.println(" ПОБЕДИТЕЛЬ: " + winner.name + "!");
-        winner.wordsOfThreat();
-        loser.theLossWords();
+        winner.declareVictory();
+        loser.reactToDefeat();
     }
 
-    public static void printAllHeroes(Hero[] heroes) {
-        for (int i = 0; i < heroes.length; i++) {
-            System.out.println((i + 1) + ". " + heroes[i].name + " " + heroes[i].clazz);
+    public static void printAllHeroes(List<Hero> heroes) {
+        int index = 1;
+        for (Hero hero : heroes) {
+            System.out.println(index + ". " + hero.name + " (" + hero.clazz + ")");
+            index++;
         }
     }
 }
