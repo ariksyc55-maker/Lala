@@ -26,7 +26,7 @@ public class Rogue extends Hero {
         int maxPower = 70;
         targetHero.takeDamage(maxPower);
         usedStrongestAttacks++;
-        System.out.println(targetHero.name + " наносит скрытый удар: " + maxPower + " урона.");
+        System.out.println(this.name + " наносит скрытый удар: " + maxPower + " урона.");
     }
 
     public void declareVictory() {

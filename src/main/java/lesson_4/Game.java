@@ -3,6 +3,7 @@ package lesson_4;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+
 import lesson_4.hero.Mage;
 import lesson_4.hero.Rogue;
 import lesson_4.hero.Warrior;
@@ -97,11 +98,11 @@ public class Game {
                     System.out.println(myHero.name + " - Использовал сильнейшую атаку");
                     myHero.performStrongestAttack(opponent);
                 } else {
-                    System.out.println("Невозможно выполнить сильнейшую атаку! Заряды закончились.");
+                    System.out.println("Заряды сильнейшей атаки закончились. Выполняется стандартная атака.");
+                    myHero.performStandardAttack(opponent);
+                    ;
                 }
             }
-            myHero.announceAttack();
-            System.out.println();
 
             if (!opponent.isAlive()) {
                 break;
@@ -112,7 +113,7 @@ public class Game {
             if (opponent.usedStrongestAttacks < opponent.maxStrongestAttacks) {
                 System.out.println("2 - Сильнейшая атака (осталось: " + (opponent.getAvailableStrongAttacks()) + ")");
             } else {
-                System.out.println("Сильнейшая атака больше не доступна (заряды закончились)");
+                System.out.println("2 - Сильнейшая атака больше не доступна (заряды закончились)");
             }
 
             attackChoice = 0;
@@ -130,13 +131,16 @@ public class Game {
                     System.out.println(opponent.name + " - Использовал сильнейшую атаку");
                     opponent.performStrongestAttack(myHero);
                 } else {
-                    System.out.println("Невозможно выполнить сильнейшую атаку! Заряды закончились.");
+                    System.out.println("Заряды сильнейшей атаки закончились. Выполняется стандартная атака.");
+                    opponent.performStandardAttack(myHero);
                 }
             }
-            opponent.announceAttack();
-            System.out.println();
+
 
             if (!opponent.isAlive()) {
+                break;
+            }
+            if (!myHero.isAlive()) {
                 break;
             }
 
