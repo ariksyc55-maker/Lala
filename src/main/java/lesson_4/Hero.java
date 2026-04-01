@@ -1,5 +1,11 @@
 package lesson_4;
 
+import java.util.ArrayList;
+import java.util.List;
+import lesson_4.PotionType;
+import lesson_4.Potion;
+import java.util.Iterator;
+
 public class Hero {
     public int health;
     public int power;
@@ -7,6 +13,32 @@ public class Hero {
     public String clazz;
     public int maxStrongestAttacks;
     public int usedStrongestAttacks;
+
+    public List<Potion> potionList = new ArrayList<>();
+
+    public void addPotion(PotionType type, int quantity) {
+        potionList.add(new Potion(type, quantity));
+        System.out.println("Добавлено в инвентарь: " + quantity + "x " + type.getDisplayName());
+    }
+
+    void useHealingPotion() {
+        for (Iterator<Potion> iterator = potionList.iterator(); iterator.hasNext(); ) {
+            Potion potion = iterator.next();
+            if (potion.getType() == PotionType.HEALING && !potion.isEmpty()) {
+                potion.use(this);
+                if (potion.isEmpty()) {
+                    iterator.remove();
+                }
+                return;
+            }
+        }
+        System.out.println("У вас нет зелий восстановления!");
+    }
+
+    void heal(int amount) {
+        this.health += amount;
+        System.out.println(this.name + " восстановил " + amount + " HP.");
+    }
 
     public void voice() {
         System.out.println("Я представитель класса " + clazz + ". Моё имя " + name);
