@@ -4,12 +4,12 @@ import lesson_4.Hero;
 
 public class Warrior extends Hero {
     public Warrior(String name, int health, int power) {
-        clazz = "Воин";
-        this.name = name;
-        this.health = health;
-        this.power = power;
-        this.maxStrongestAttacks = 2;
-        this.usedStrongestAttacks = 0;
+        setClazz("Воин");
+        this.setName(name);
+        this.setHealth(health);
+        this.setPower(power);
+        this.setMaxStrongestAttacks(2);
+        this.setUsedStrongestAttacks(0);
         voice();
     }
 
@@ -25,7 +25,7 @@ public class Warrior extends Hero {
         }
         int maxPower = 60;
         targetHero.takeDamage(maxPower);
-        getMaxStrongestAttacks()++;
+        maxStrongestAttacks()++;
         System.out.println(this.getName() + " нанес разрушвющий удар " + maxPower + " урона.");
     }
 

@@ -4,12 +4,12 @@ import lesson_4.Hero;
 
 public class Rogue extends Hero {
     public Rogue(String name, int health, int power) {
-        clazz = "Разбойник";
-        this.name = name;
-        this.health = health;
-        this.power = power;
-        this.maxStrongestAttacks = 2;
-        this.usedStrongestAttacks = 0;
+        setClazz("Воин");
+        this.setName(name);
+        this.setHealth(health);
+        this.setPower(power);
+        this.setMaxStrongestAttacks(2);
+        this.setUsedStrongestAttacks(0);
         voice();
     }
 
