@@ -12,7 +12,59 @@ public class Hero {
     public String name;
     public String clazz;
     public int maxStrongestAttacks;
-    public int usedStrongestAttacks;
+    private int usedStrongestAttacks;
+
+    public int getPower() {
+        return power;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getClazz() {
+        return clazz;
+    }
+
+    public int getMaxStrongestAttacks() {
+        return maxStrongestAttacks;
+    }
+
+    public int getUsedStrongestAttacks() {
+        return usedStrongestAttacks;
+    }
+
+    public List<Potion> getPotionList() {
+        return potionList;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setPotionList(List<Potion> potionList) {
+        this.potionList = potionList;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setClazz(String clazz) {
+        this.clazz = clazz;
+    }
+
+    public void setMaxStrongestAttacks(int maxStrongestAttacks) {
+        this.maxStrongestAttacks = maxStrongestAttacks;
+    }
+
+    public void setUsedStrongestAttacks(int usedStrongestAttacks) {
+        this.usedStrongestAttacks = usedStrongestAttacks;
+    }
 
     public List<Potion> potionList = new ArrayList<>();
 
@@ -21,7 +73,7 @@ public class Hero {
         System.out.println("Добавлено в инвентарь: " + quantity + "x " + type.getDisplayName());
     }
 
-    void useHealingPotion() {
+   public void useHealingPotion() {
         for (Iterator<Potion> iterator = potionList.iterator(); iterator.hasNext(); ) {
             Potion potion = iterator.next();
             if (potion.getType() == PotionType.HEALING && !potion.isEmpty()) {
@@ -35,7 +87,7 @@ public class Hero {
         System.out.println("У вас нет зелий восстановления!");
     }
 
-    void heal(int amount) {
+   public void heal(int amount) {
         this.health += amount;
         System.out.println(this.name + " восстановил " + amount + " HP.");
     }

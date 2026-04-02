@@ -85,7 +85,8 @@ public class Game {
 
             System.out.println("Ход: " + myHero.name);
             System.out.println("1 - Обычная атака");
-            if (myHero.usedStrongestAttacks < myHero.maxStrongestAttacks) {
+            // убрать 2 атаку после окончания снарядов
+            if (myHero.getUsedStrongestAttacks() < myHero.maxStrongestAttacks) {
                 System.out.println("2 - Сильнейшая атака (осталось: " + (myHero.getAvailableStrongAttacks()) + ")");
             } else {
                 System.out.println("2 - Сильнейшая атака больше не доступна (заряды закончились)");
@@ -105,7 +106,7 @@ public class Game {
                     myHero.performStandardAttack(opponent);
                     break;
                 case 2:
-                    if (myHero.usedStrongestAttacks < myHero.maxStrongestAttacks) {
+                    if (myHero.getUsedStrongestAttacks() < myHero.maxStrongestAttacks) {
                         System.out.println(myHero.name + " - Использовал сильнейшую атаку");
                         myHero.performStrongestAttack(opponent);
                     } else {
@@ -125,7 +126,7 @@ public class Game {
 
             System.out.println("Ход: " + opponent.name);
             System.out.println("1 - Обычная атака");
-            if (opponent.usedStrongestAttacks < opponent.maxStrongestAttacks) {
+            if (opponent.getUsedStrongestAttacks() < opponent.maxStrongestAttacks) {
                 System.out.println("2 - Сильнейшая атака (осталось: " + (opponent.getAvailableStrongAttacks()) + ")");
             } else {
                 System.out.println("2 - Сильнейшая атака больше не доступна (заряды закончились)");
@@ -145,7 +146,7 @@ public class Game {
                     opponent.performStandardAttack(myHero);
                     break;
                 case 2:
-                    if (opponent.usedStrongestAttacks < myHero.maxStrongestAttacks) {
+                    if (opponent.getUsedStrongestAttacks() < myHero.maxStrongestAttacks) {
                         System.out.println(opponent.name + " - Использовал сильнейшую атаку");
                         opponent.performStrongestAttack(myHero);
                     } else {
@@ -154,7 +155,7 @@ public class Game {
                     }
                     break;
                 case 3:
-                    opponent.useHealingPotion(); // Используем зелье
+                    opponent.useHealingPotion();
                     break;
             }
 

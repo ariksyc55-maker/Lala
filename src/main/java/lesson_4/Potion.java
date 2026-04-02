@@ -15,7 +15,7 @@ public class Potion {
     public int getQuantity() {
         return quantity;
     }
-    void use(Hero hero){
+    public void use(Hero hero){
         hero.heal(type.getEffectValue());
         System.out.println("Вы выпили " + type.getDisplayName() + ". Восcтановлено " + type.getEffectValue() + " HP.");
         quantity--;

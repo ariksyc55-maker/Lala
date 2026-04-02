@@ -11,10 +11,10 @@ public enum PotionType {
         this.effectValue = effectValue;
     }
 
-    String getDisplayName(){
+    public String getDisplayName(){
         return displayName;
     }
-    int getEffectValue(){
+    public int getEffectValue(){
         return effectValue;
     }
 }
