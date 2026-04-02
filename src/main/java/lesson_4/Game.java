@@ -85,7 +85,6 @@ public class Game {
 
             System.out.println("Ход: " + myHero.getName());
             System.out.println("1 - Обычная атака");
-            // убрать 2 атаку после окончания снарядов
             if (myHero.getUsedStrongestAttacks() < myHero.getMaxStrongestAttacks()) {
                 System.out.println("2 - Сильнейшая атака (осталось: " + (myHero.getAvailableStrongAttacks()) + ")");
             } else {
