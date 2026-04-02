@@ -48,7 +48,7 @@ public class Game {
         }
         int firstHeroIndex = choice - 1;
         Hero firstHero = heroes.get(firstHeroIndex);
-        System.out.println("Вы выбрали: " + firstHero.name);
+        System.out.println("Вы выбрали: " + firstHero.getName());
         System.out.println();
 
         choice = 0;
@@ -60,7 +60,7 @@ public class Game {
             scanner.nextLine();
         }
         Hero opponent = heroes.get(choice - 1);
-        System.out.println("Ваш противник: " + opponent.name);
+        System.out.println("Ваш противник: " + opponent.getName());
         System.out.println();
         attack(firstHero, opponent, scanner);
         scanner.close();
@@ -68,9 +68,9 @@ public class Game {
 
     public static void attack(Hero myHero, Hero opponent, Scanner scanner) {
         System.out.println("-----БИТВА НАЧИНАЕТСЯ-----");
-        System.out.println("Сражаются: " + myHero.name + " (здоровье: " + myHero.health + ")");
+        System.out.println("Сражаются: " + myHero.getName() + " (здоровье: " + myHero.getHealth() + ")");
         System.out.println("против ");
-        System.out.println(opponent.name + " (здоровье: " + opponent.health + ")");
+        System.out.println(opponent.getName() + " (здоровье: " + opponent.getHealth() + ")");
         System.out.println();
 
         int round = 1;
@@ -80,13 +80,13 @@ public class Game {
 
         while (myHero.isAlive() && opponent.isAlive()) {
             System.out.println("----- РАУНД " + round + " -----");
-            System.out.println("Нажмите Enter для атаки " + myHero.name);
+            System.out.println("Нажмите Enter для атаки " + myHero.getName());
             scanner.nextLine();
 
-            System.out.println("Ход: " + myHero.name);
+            System.out.println("Ход: " + myHero.getName());
             System.out.println("1 - Обычная атака");
             // убрать 2 атаку после окончания снарядов
-            if (myHero.getUsedStrongestAttacks() < myHero.maxStrongestAttacks) {
+            if (myHero.getUsedStrongestAttacks() < myHero.getMaxStrongestAttacks()) {
                 System.out.println("2 - Сильнейшая атака (осталось: " + (myHero.getAvailableStrongAttacks()) + ")");
             } else {
                 System.out.println("2 - Сильнейшая атака больше не доступна (заряды закончились)");
@@ -102,12 +102,12 @@ public class Game {
 
             switch (attackChoice) {
                 case 1:
-                    System.out.println(myHero.name + " - Использовал стандартную атаку");
+                    System.out.println(myHero.getName() + " - Использовал стандартную атаку");
                     myHero.performStandardAttack(opponent);
                     break;
                 case 2:
-                    if (myHero.getUsedStrongestAttacks() < myHero.maxStrongestAttacks) {
-                        System.out.println(myHero.name + " - Использовал сильнейшую атаку");
+                    if (myHero.getUsedStrongestAttacks() < myHero.getMaxStrongestAttacks()) {
+                        System.out.println(myHero.getName() + " - Использовал сильнейшую атаку");
                         myHero.performStrongestAttack(opponent);
                     } else {
                         System.out.println("Заряды сильнейшей атаки закончились. Выполняется стандартная атака.");
@@ -124,9 +124,9 @@ public class Game {
                 break;
             }
 
-            System.out.println("Ход: " + opponent.name);
+            System.out.println("Ход: " + opponent.getName());
             System.out.println("1 - Обычная атака");
-            if (opponent.getUsedStrongestAttacks() < opponent.maxStrongestAttacks) {
+            if (opponent.getUsedStrongestAttacks() < opponent.getMaxStrongestAttacks()) {
                 System.out.println("2 - Сильнейшая атака (осталось: " + (opponent.getAvailableStrongAttacks()) + ")");
             } else {
                 System.out.println("2 - Сильнейшая атака больше не доступна (заряды закончились)");
@@ -142,12 +142,12 @@ public class Game {
 
             switch (attackChoice) {
                 case 1:
-                    System.out.println(opponent.name + " - Использовал стандартную атаку");
+                    System.out.println(opponent.getName() + " - Использовал стандартную атаку");
                     opponent.performStandardAttack(myHero);
                     break;
                 case 2:
-                    if (opponent.getUsedStrongestAttacks() < myHero.maxStrongestAttacks) {
-                        System.out.println(opponent.name + " - Использовал сильнейшую атаку");
+                    if (opponent.getUsedStrongestAttacks() < myHero.getMaxStrongestAttacks()) {
+                        System.out.println(opponent.getName() + " - Использовал сильнейшую атаку");
                         opponent.performStrongestAttack(myHero);
                     } else {
                         System.out.println("Заряды сильнейшей атаки закончились. Выполняется стандартная атака.");
@@ -168,13 +168,13 @@ public class Game {
             }
 
             System.out.println("Состояние после раунда № " + round + ":");
-            System.out.println(myHero.name + ": " + myHero.health);
-            System.out.println(opponent.name + ": " + opponent.health);
+            System.out.println(myHero.getName() + ": " + myHero.getHealth());
+            System.out.println(opponent.getName() + ": " + opponent.getHealth());
             int myHeroPotionCount = 0;
             for (Potion potion : myHero.potionList) {
                 myHeroPotionCount += potion.getQuantity();
             }
-            System.out.println("Зелья восстановления у " + myHero.name + ": " + myHeroPotionCount);
+            System.out.println("Зелья восстановления у " + myHero.getName() + ": " + myHeroPotionCount);
 
             int opponentPotionCount = 0;
             for (Potion potion : opponent.potionList) {
@@ -182,7 +182,7 @@ public class Game {
                     opponentPotionCount += potion.getQuantity();
                 }
             }
-            System.out.println("Зелья восстановления у " + opponent.name + ": " + opponentPotionCount);
+            System.out.println("Зелья восстановления у " + opponent.getName() + ": " + opponentPotionCount);
             System.out.println("Нажмите Enter для продолжения...");
             scanner.nextLine();
             round++;
@@ -197,7 +197,7 @@ public class Game {
             loser = myHero;
         }
 
-        System.out.println(" ПОБЕДИТЕЛЬ: " + winner.name + "!");
+        System.out.println(" ПОБЕДИТЕЛЬ: " + winner.getName() + "!");
         winner.declareVictory();
         loser.reactToDefeat();
     }
@@ -211,8 +211,8 @@ public class Game {
                     healingPotionsCount += potion.getQuantity();
                 }
             }
-                System.out.println(index + ". " + hero.name + " (" + hero.clazz + ")");
-                System.out.println("   Здоровье: " + hero.health + ", Сила: " + hero.power);
+                System.out.println(index + ". " + hero.getName() + " (" + hero.getClass() + ")");
+                System.out.println("   Здоровье: " + hero.getHealth() + ", Сила: " + hero.getPower());
                 System.out.println("   Зелья восстановления: " + healingPotionsCount);
                 index++;
 

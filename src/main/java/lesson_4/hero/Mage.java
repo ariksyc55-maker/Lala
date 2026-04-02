@@ -14,26 +14,26 @@ public class Mage extends Hero {
     }
 
     public void performStandardAttack(Hero target) {
-        System.out.println(this.name + ": Выпуская огненный шар в " + target.name);
-        target.takeDamage(this.power);
+        System.out.println(this.getName() + ": Выпуская огненный шар в " + target.getName());
+        target.takeDamage(this.getPower());
     }
 
     public void performStrongestAttack(Hero targetHero) {
-        if (usedStrongestAttacks >= maxStrongestAttacks) {
-            System.out.println(this.name + " не может использовать сильнейшую атаку - закончились снаряды");
+        if (getUsedStrongestAttacks() >= getMaxStrongestAttacks()) {
+            System.out.println(this.getName() + " не может использовать сильнейшую атаку - закончились снаряды");
             return;
         }
         int maxPower = 50;
         targetHero.takeDamage(maxPower);
         usedStrongestAttacks++;
-        System.out.println(this.name + " призывает сильнейшее заклинание огня: " + maxPower + " урона.");
+        System.out.println(this.getName() + " призывает сильнейшее заклинание огня: " + maxPower + " урона.");
     }
 
     public void declareVictory() {
-        System.out.println(" Я " + this.name + " сожгу тебя дотла");
+        System.out.println(" Я " + this.getName() + " сожгу тебя дотла");
     }
 
     public void announceAttack() {
-        System.out.println(this.name + ": создает атакуещие заклинание");
+        System.out.println(this.getName() + ": создает атакуещие заклинание");
     }
 }

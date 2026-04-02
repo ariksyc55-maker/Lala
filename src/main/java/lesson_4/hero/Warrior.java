@@ -14,26 +14,26 @@ public class Warrior extends Hero {
     }
 
     public void performStandardAttack(Hero target) {
-        System.out.println(this.name + " наносит удар мечом " + target.name);
-        target.takeDamage(this.power);
+        System.out.println(this.getName() + " наносит удар мечом " + target.getName());
+        target.takeDamage(this.getPower());
     }
 
     public void performStrongestAttack(Hero targetHero) {
-        if (usedStrongestAttacks >= maxStrongestAttacks) {
-            System.out.println(this.name + " не может использовать сильнейшую атаку - закончились снаряды");
+        if (getUsedStrongestAttacks() >= getMaxStrongestAttacks()) {
+            System.out.println(this.getName() + " не может использовать сильнейшую атаку - закончились снаряды");
             return;
         }
         int maxPower = 60;
         targetHero.takeDamage(maxPower);
-        usedStrongestAttacks++;
-        System.out.println(this.name + " нанес разрушвющий удар " + maxPower + " урона.");
+        getMaxStrongestAttacks()++;
+        System.out.println(this.getName() + " нанес разрушвющий удар " + maxPower + " урона.");
     }
 
     public void declareVictory() {
-        System.out.println(this.name + ": Почуствуй мою мощь");
+        System.out.println(this.getName() + ": Почуствуй мою мощь");
     }
 
     public void announceAttack() {
-        System.out.println(this.name + ": атакует");
+        System.out.println(this.getName() + ": атакует");
     }
 }

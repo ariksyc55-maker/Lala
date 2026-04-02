@@ -14,26 +14,26 @@ public class Rogue extends Hero {
     }
 
     public void performStandardAttack(Hero target) {
-        System.out.println(this.name + ": Делает внезапную атаку " + target.name);
-        target.takeDamage(this.power);
+        System.out.println(this.getName() + ": Делает внезапную атаку " + target.getName());
+        target.takeDamage(this.getPower());
     }
 
     public void performStrongestAttack(Hero targetHero) {
-        if (usedStrongestAttacks >= maxStrongestAttacks) {
-            System.out.println(this.name + " не может использовать сильнейшую атаку - закончились снаряды");
+        if (getUsedStrongestAttacks() >= getMaxStrongestAttacks()) {
+            System.out.println(this.getName() + " не может использовать сильнейшую атаку - закончились снаряды");
             return;
         }
         int maxPower = 70;
         targetHero.takeDamage(maxPower);
         usedStrongestAttacks++;
-        System.out.println(this.name + " наносит скрытый удар: " + maxPower + " урона.");
+        System.out.println(this.getName() + " наносит скрытый удар: " + maxPower + " урона.");
     }
 
     public void declareVictory() {
-        System.out.println(this.name + " Я разогнался");
+        System.out.println(this.getName() + " Я разогнался");
     }
 
     public void announceAttack() {
-        System.out.println(this.name + ": Готовится нанести удар");
+        System.out.println(this.getName() + ": Готовится нанести удар");
     }
 }

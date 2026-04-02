@@ -7,11 +7,11 @@ import lesson_4.Potion;
 import java.util.Iterator;
 
 public class Hero {
-    public int health;
-    public int power;
-    public String name;
-    public String clazz;
-    public int maxStrongestAttacks;
+    private int health;
+    private int power;
+    private String name;
+    private String clazz;
+    private int maxStrongestAttacks;
     private int usedStrongestAttacks;
 
     public int getPower() {

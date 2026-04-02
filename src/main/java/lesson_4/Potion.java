@@ -4,11 +4,11 @@ public class Potion {
     private PotionType type;
     private int quantity;
 
-    Potion(PotionType type, int quantity){
+    public Potion(PotionType type, int quantity){
         this.type = type;
         this.quantity = quantity;
     }
-    PotionType getType(){
+    public PotionType getType(){
         return type;
     }
 
