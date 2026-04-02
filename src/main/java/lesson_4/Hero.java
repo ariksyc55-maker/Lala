@@ -66,7 +66,7 @@ public class Hero {
         this.usedStrongestAttacks = usedStrongestAttacks;
     }
 
-    public List<Potion> potionList = new ArrayList<>();
+    private List<Potion> potionList = new ArrayList<>();
 
     public void addPotion(PotionType type, int quantity) {
         potionList.add(new Potion(type, quantity));

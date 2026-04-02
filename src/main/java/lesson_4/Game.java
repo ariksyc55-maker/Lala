@@ -171,13 +171,13 @@ public class Game {
             System.out.println(myHero.getName() + ": " + myHero.getHealth());
             System.out.println(opponent.getName() + ": " + opponent.getHealth());
             int myHeroPotionCount = 0;
-            for (Potion potion : myHero.potionList) {
+            for (Potion potion : myHero.getPotionList()) {
                 myHeroPotionCount += potion.getQuantity();
             }
             System.out.println("Зелья восстановления у " + myHero.getName() + ": " + myHeroPotionCount);
 
             int opponentPotionCount = 0;
-            for (Potion potion : opponent.potionList) {
+            for (Potion potion : opponent.getPotionList()) {
                 if (potion.getType() == PotionType.HEALING){
                     opponentPotionCount += potion.getQuantity();
                 }
@@ -206,7 +206,7 @@ public class Game {
         int index = 1;
         for (Hero hero : heroes) {
             int healingPotionsCount = 0;
-            for (Potion potion : hero.potionList) {
+            for (Potion potion : hero.getPotionList()) {
                 if (potion.getType() == PotionType.HEALING) {
                     healingPotionsCount += potion.getQuantity();
                 }
