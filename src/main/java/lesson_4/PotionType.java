@@ -6,15 +6,16 @@ public enum PotionType {
     private final String displayName;
     private final int effectValue;
 
-    PotionType(String displayName, int effectValue){
+    PotionType(String displayName, int effectValue) {
         this.displayName = displayName;
         this.effectValue = effectValue;
     }
 
-    public String getDisplayName(){
+    public String getDisplayName() {
         return displayName;
     }
-    public int getEffectValue(){
+
+    public int getEffectValue() {
         return effectValue;
     }
 }

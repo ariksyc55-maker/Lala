@@ -4,7 +4,7 @@ import lesson_4.Hero;
 
 public class Rogue extends Hero {
     public Rogue(String name, int health, int power) {
-        setClazz("Воин");
+        setClazz("Разбойник");
         this.setName(name);
         this.setHealth(health);
         this.setPower(power);
@@ -25,7 +25,7 @@ public class Rogue extends Hero {
         }
         int maxPower = 70;
         targetHero.takeDamage(maxPower);
-        usedStrongestAttacks++;
+        this.setUsedStrongestAttacks(this.getUsedStrongestAttacks() + 1);
         System.out.println(this.getName() + " наносит скрытый удар: " + maxPower + " урона.");
     }
 

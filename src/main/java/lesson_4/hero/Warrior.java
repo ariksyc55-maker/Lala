@@ -25,7 +25,7 @@ public class Warrior extends Hero {
         }
         int maxPower = 60;
         targetHero.takeDamage(maxPower);
-        maxStrongestAttacks()++;
+        this.setUsedStrongestAttacks(this.getUsedStrongestAttacks() + 1);
         System.out.println(this.getName() + " нанес разрушвющий удар " + maxPower + " урона.");
     }
 

@@ -4,7 +4,7 @@ import lesson_4.Hero;
 
 public class Mage extends Hero {
     public Mage(String name, int health, int power) {
-        setClazz("Воин");
+        setClazz("Маг");
         this.setName(name);
         this.setHealth(health);
         this.setPower(power);
@@ -25,7 +25,7 @@ public class Mage extends Hero {
         }
         int maxPower = 50;
         targetHero.takeDamage(maxPower);
-        usedStrongestAttacks++;
+        this.setUsedStrongestAttacks(this.getUsedStrongestAttacks() + 1);
         System.out.println(this.getName() + " призывает сильнейшее заклинание огня: " + maxPower + " урона.");
     }
 

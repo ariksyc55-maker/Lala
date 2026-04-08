@@ -4,8 +4,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-import lesson_4.Potion;
-import lesson_4.PotionType;
 import lesson_4.hero.Warrior;
 import lesson_4.hero.Mage;
 import lesson_4.hero.Rogue;
@@ -18,7 +16,7 @@ public class Game {
         System.out.println();
 
         Warrior warriorOne = new Warrior("Артур", 200, 30);
-        warriorOne.addPotion(PotionType.HEALING,2);
+        warriorOne.addPotion(PotionType.HEALING, 2);
         Warrior warriorTwo = new Warrior("Фростморн", 190, 40);
         warriorTwo.addPotion(PotionType.HEALING, 2);
         Mage mageOne = new Mage("Ягерместер", 130, 20);
@@ -114,7 +112,7 @@ public class Game {
                     }
                     break;
                 case 3:
-                    myHero.useHealingPotion();
+                    myHero.usePotion(PotionType.HEALING);
                     break;
             }
 
@@ -122,6 +120,8 @@ public class Game {
             if (!opponent.isAlive()) {
                 break;
             }
+
+            System.out.println(); // пробел между строками атаки
 
             System.out.println("Ход: " + opponent.getName());
             System.out.println("1 - Обычная атака");
@@ -154,7 +154,7 @@ public class Game {
                     }
                     break;
                 case 3:
-                    opponent.useHealingPotion();
+                    opponent.usePotion(PotionType.HEALING);
                     break;
             }
 
@@ -165,6 +165,8 @@ public class Game {
             if (!myHero.isAlive()) {
                 break;
             }
+
+            System.out.println(); // пробел между строками атаки
 
             System.out.println("Состояние после раунда № " + round + ":");
             System.out.println(myHero.getName() + ": " + myHero.getHealth());
@@ -177,7 +179,7 @@ public class Game {
 
             int opponentPotionCount = 0;
             for (Potion potion : opponent.getPotionList()) {
-                if (potion.getType() == PotionType.HEALING){
+                if (potion.getType() == PotionType.HEALING) {
                     opponentPotionCount += potion.getQuantity();
                 }
             }
@@ -210,11 +212,10 @@ public class Game {
                     healingPotionsCount += potion.getQuantity();
                 }
             }
-                System.out.println(index + ". " + hero.getName() + " (" + hero.getClass() + ")");
-                System.out.println("   Здоровье: " + hero.getHealth() + ", Сила: " + hero.getPower());
-                System.out.println("   Зелья восстановления: " + healingPotionsCount);
-                index++;
-
+            System.out.println(index + ". " + hero.getName() + " (" + hero.getClazz() + ")");
+            System.out.println("   Здоровье: " + hero.getHealth() + ", Сила: " + hero.getPower());
+            System.out.println("   Зелья восстановления: " + healingPotionsCount);
+            index++;
         }
     }
 }
