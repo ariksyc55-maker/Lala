@@ -10,12 +10,22 @@ public class Rogue extends Hero {
         this.setPower(power);
         this.setMaxStrongestAttacks(2);
         this.setUsedStrongestAttacks(0);
+        this.setCriticalChance(25.0);
+        this.setCriticalMultiplier(1.2);
         voice();
     }
 
     public void performStandardAttack(Hero target) {
-        System.out.println(this.getName() + ": Делает внезапную атаку " + target.getName());
-        target.takeDamage(this.getPower());
+        double randomChance = Math.random() * 100;
+
+        if (randomChance <= this.getCriticalChance()) {
+            int criticalDamage = (int) (this.getPower() * this.getCriticalMultiplier());
+            target.takeDamage(criticalDamage);
+            System.out.println(this.getName() + " наносит точный удар кинжалом! КРИТИЧЕСКОЕ ПОПАДАНИЕ: " + criticalDamage + " (+20%)");
+        } else {
+            target.takeDamage(this.getPower());
+            System.out.println(this.getName() + " атакует кинжалами. Урон: " + this.getPower());
+        }
     }
 
     public void performStrongestAttack(Hero targetHero) {

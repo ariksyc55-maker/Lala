@@ -10,13 +10,24 @@ public class Mage extends Hero {
         this.setPower(power);
         this.setMaxStrongestAttacks(2);
         this.setUsedStrongestAttacks(0);
+        this.setCriticalChance(15.0);
+        this.setCriticalMultiplier(1.2);
         voice();
     }
 
     public void performStandardAttack(Hero target) {
-        System.out.println(this.getName() + ": Выпуская огненный шар в " + target.getName());
-        target.takeDamage(this.getPower());
+        double randomChance = Math.random() * 100;
+
+        if (randomChance <= this.getCriticalChance()) {
+            int criticalDamage = (int) (this.getPower() * this.getCriticalMultiplier());
+            target.takeDamage(criticalDamage);
+            System.out.println(this.getName() + " выпускает магический снаряд! КРИТИЧЕСКИЙ УДАР: " + criticalDamage + " (+20%)");
+        } else {
+            target.takeDamage(this.getPower());
+            System.out.println(this.getName() + " использует заклинание. Урон: " + this.getPower());
+        }
     }
+
 
     public void performStrongestAttack(Hero targetHero) {
         if (getUsedStrongestAttacks() >= getMaxStrongestAttacks()) {

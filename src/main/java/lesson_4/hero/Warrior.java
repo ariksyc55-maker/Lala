@@ -10,12 +10,22 @@ public class Warrior extends Hero {
         this.setPower(power);
         this.setMaxStrongestAttacks(2);
         this.setUsedStrongestAttacks(0);
+        this.setCriticalChance(10.0);
+        this.setCriticalMultiplier(1.2);
         voice();
     }
 
     public void performStandardAttack(Hero target) {
-        System.out.println(this.getName() + " наносит удар мечом " + target.getName());
-        target.takeDamage(this.getPower());
+        double randomChance = Math.random() * 100;
+
+        if (randomChance <= this.getCriticalChance()) {
+            int criticalDamage = (int) (this.getPower() * this.getCriticalMultiplier());
+            target.takeDamage(criticalDamage);
+            System.out.println(this.getName() + " наносит МОЩНЫЙ УДАР мечом! КРИТИЧЕСКИЙ УРОН: " + criticalDamage);
+        } else {
+            target.takeDamage(this.getPower());
+            System.out.println(this.getName() + " наносит удар мечом. Урон: " + this.getPower());
+        }
     }
 
     public void performStrongestAttack(Hero targetHero) {

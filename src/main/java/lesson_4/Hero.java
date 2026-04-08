@@ -11,6 +11,24 @@ public class Hero {
     private String clazz;
     private int maxStrongestAttacks;
     private int usedStrongestAttacks;
+    private double criticalChance;
+    private double criticalMultiplier;
+
+    public double getCriticalChance() {
+        return criticalChance;
+    }
+
+    public double getCriticalMultiplier() {
+        return criticalMultiplier;
+    }
+
+    public void setCriticalMultiplier(double criticalMultiplier) {
+        this.criticalMultiplier = criticalMultiplier;
+    }
+
+    public void setCriticalChance(double criticalChance) {
+        this.criticalChance = criticalChance;
+    }
 
     public int getPower() {
         return power;
@@ -97,7 +115,15 @@ public class Hero {
     }
 
     public void performStandardAttack(Hero targetHero) {
-        targetHero.takeDamage(power);
+        double randomChance = Math.random() * 100;
+        if (randomChance <= this.getCriticalChance()) {
+            int criticalDamage = (int) (this.getPower() * this.getCriticalMultiplier());
+            targetHero.takeDamage(criticalDamage);
+            System.out.println(this.getName() + " наносит КРИТИЧЕСКИЙ УДАР! Урон: " + criticalDamage);
+        } else {
+            targetHero.takeDamage(this.getPower());
+            System.out.println(this.getName() + " наносит удар. Урон: " + this.getPower());
+        }
     }
 
     public int getAvailableStrongAttacks() {
