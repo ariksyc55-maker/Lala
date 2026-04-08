@@ -43,8 +43,4 @@ public class Mage extends Hero {
     public void declareVictory() {
         System.out.println(" Я " + this.getName() + " сожгу тебя дотла");
     }
-
-    public void announceAttack() {
-        System.out.println(this.getName() + ": создает атакуещие заклинание");
-    }
 }

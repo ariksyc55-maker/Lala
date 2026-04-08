@@ -159,9 +159,6 @@ public class Hero {
         }
     }
 
-    public void announceAttack() {
-    }
-
     public void declareVictory() {
         System.out.println(this.name);
     }

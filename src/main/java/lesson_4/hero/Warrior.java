@@ -42,8 +42,4 @@ public class Warrior extends Hero {
     public void declareVictory() {
         System.out.println(this.getName() + ": Почуствуй мою мощь");
     }
-
-    public void announceAttack() {
-        System.out.println(this.getName() + ": атакует");
-    }
 }

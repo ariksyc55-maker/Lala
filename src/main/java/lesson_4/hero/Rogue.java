@@ -42,8 +42,4 @@ public class Rogue extends Hero {
     public void declareVictory() {
         System.out.println(this.getName() + " Я разогнался");
     }
-
-    public void announceAttack() {
-        System.out.println(this.getName() + ": Готовится нанести удар");
-    }
 }
