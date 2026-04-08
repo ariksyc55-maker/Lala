@@ -11,7 +11,7 @@ public class Mage extends Hero {
         this.setMaxStrongestAttacks(2);
         this.setUsedStrongestAttacks(0);
         this.setCriticalChance(15.0);
-        this.setCriticalMultiplier(1.2);
+        this.setCriticalMultiplier(1.4);
         voice();
     }
 

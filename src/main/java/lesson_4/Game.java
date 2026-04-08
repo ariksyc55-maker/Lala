@@ -15,17 +15,17 @@ public class Game {
         System.out.println("----- ДОБРО ПОЖАЛОВАТЬ В ИГРУ -----");
         System.out.println();
 
-        Warrior warriorOne = new Warrior("Артур", 200, 30);
+        Warrior warriorOne = new Warrior("Артур", 240, 32);
         warriorOne.addPotion(PotionType.HEALING, 2);
-        Warrior warriorTwo = new Warrior("Фростморн", 190, 40);
+        Warrior warriorTwo = new Warrior("Фростморн", 250, 30);
         warriorTwo.addPotion(PotionType.HEALING, 2);
-        Mage mageOne = new Mage("Ягерместер", 130, 20);
+        Mage mageOne = new Mage("Ягерместер", 150, 48);
         mageOne.addPotion(PotionType.HEALING, 2);
-        Mage mageTwo = new Mage("Ильестр", 140, 30);
+        Mage mageTwo = new Mage("Ильестр", 145, 50);
         mageTwo.addPotion(PotionType.HEALING, 2);
-        Rogue rogueOne = new Rogue("Берсек", 150, 50);
+        Rogue rogueOne = new Rogue("Берсек", 180, 42);
         rogueOne.addPotion(PotionType.HEALING, 2);
-        Rogue rogueTwo = new Rogue("Брианна", 170, 40);
+        Rogue rogueTwo = new Rogue("Брианна", 175, 44);
         rogueTwo.addPotion(PotionType.HEALING, 2);
 
         List<Hero> heroes = new ArrayList<>();
