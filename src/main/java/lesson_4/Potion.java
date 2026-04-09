@@ -1,6 +1,6 @@
 package lesson_4;
 
-public class Potion {
+public class Potion { //
     private PotionType type;
     private int quantity;
 

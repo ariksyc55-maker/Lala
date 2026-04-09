@@ -13,6 +13,7 @@ public class Hero {
     private int usedStrongestAttacks;
     private double criticalChance;
     private double criticalMultiplier;
+    private List<Potion> potionList = new ArrayList<>();  //изменить название класса Potion
 
     public double getCriticalChance() {
         return criticalChance;
@@ -82,17 +83,15 @@ public class Hero {
         this.usedStrongestAttacks = usedStrongestAttacks;
     }
 
-    private List<Potion> potionList = new ArrayList<>();
-
     public void addPotion(PotionType type, int quantity) {
         potionList.add(new Potion(type, quantity));
         System.out.println("Добавлено в инвентарь: " + quantity + "x " + type.getDisplayName());
     }
 
     public void usePotion(PotionType potionType) {
-        for (Iterator<Potion> iterator = potionList.iterator(); iterator.hasNext(); ) {
+        for (Iterator<Potion> iterator = potionList.iterator(); iterator.hasNext(); ) { //итератор заменить
             Potion potion = iterator.next();
-            if (potion.getType() == PotionType.HEALING && !potion.isEmpty()) {
+            if (potion.getType() == potionType && !potion.isEmpty()) { //переделать методы
                 potion.use(this);
                 if (potion.isEmpty()) {
                     iterator.remove();
