@@ -24,7 +24,7 @@ public class Mage extends Hero {
             System.out.println(this.getName() + " выпускает магический снаряд! КРИТИЧЕСКИЙ УДАР: " + criticalDamage + " (+20%)");
         } else {
             target.takeDamage(this.getPower());
-            System.out.println(this.getName() + " использует заклинание. Урон: " + this.getPower());
+            System.out.println(this.getName() + " использует заклинание. Урон: " + this.getPower()); //переделать в отдельный метод
         }
     }
 

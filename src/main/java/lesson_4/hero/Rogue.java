@@ -24,7 +24,7 @@ public class Rogue extends Hero {
             System.out.println(this.getName() + " наносит точный удар кинжалом! КРИТИЧЕСКОЕ ПОПАДАНИЕ: " + criticalDamage + " (+20%)");
         } else {
             target.takeDamage(this.getPower());
-            System.out.println(this.getName() + " атакует кинжалами. Урон: " + this.getPower());
+            System.out.println(this.getName() + " атакует кинжалами. Урон: " + this.getPower()); //переделать в отдельный метод
         }
     }
 

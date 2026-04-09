@@ -19,7 +19,7 @@ public class Warrior extends Hero {
         double randomChance = Math.random() * 100;
 
         if (randomChance <= this.getCriticalChance()) {
-            int criticalDamage = (int) (this.getPower() * this.getCriticalMultiplier());
+            int criticalDamage = (int) (this.getPower() * this.getCriticalMultiplier());    //переделать в отдельный метод
             target.takeDamage(criticalDamage);
             System.out.println(this.getName() + " наносит МОЩНЫЙ УДАР мечом! КРИТИЧЕСКИЙ УРОН: " + criticalDamage);
         } else {
