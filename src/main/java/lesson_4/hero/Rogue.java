@@ -10,7 +10,7 @@ public class Rogue extends Hero {
         this.setPower(power);
         this.setMaxStrongestAttacks(2);
         this.setUsedStrongestAttacks(0);
-        this.setCriticalChance(25.0);
+        this.setCriticalChance(25.0);   //повысить шанс крит урона
         this.setCriticalMultiplier(1.5);
         voice();
     }

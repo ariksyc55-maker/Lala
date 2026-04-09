@@ -10,7 +10,7 @@ public class Warrior extends Hero {
         this.setPower(power);
         this.setMaxStrongestAttacks(2);
         this.setUsedStrongestAttacks(0);
-        this.setCriticalChance(10.0);
+        this.setCriticalChance(10.0); // повысить шанс крита
         this.setCriticalMultiplier(1.3);
         voice();
     }
