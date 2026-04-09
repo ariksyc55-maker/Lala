@@ -98,7 +98,7 @@ public class Game {
             System.out.println("4 - Использовать зелье восстановления сильнейших атак");
 
             int attackChoice = 0;
-            while (attackChoice != 1 && attackChoice != 2 && attackChoice != 3) {
+            while (attackChoice != 1 && attackChoice != 2 && attackChoice != 3 && attackChoice != 4) {
                 System.out.print("Ваш выбор: ");
                 attackChoice = scanner.nextInt();
                 scanner.nextLine();
@@ -143,7 +143,7 @@ public class Game {
             System.out.println("3 - Использовать зелье восстановления");
 
             attackChoice = 0;
-            while (attackChoice != 1 && attackChoice != 2 && attackChoice != 3) {
+            while (attackChoice != 1 && attackChoice != 2 && attackChoice != 3 && attackChoice != 4) {
                 System.out.print("Ваш выбор: ");
                 attackChoice = scanner.nextInt();
                 scanner.nextLine();

@@ -22,7 +22,7 @@ public class Potion {
             hero.heal(type.getEffectValue());
             System.out.println("Вы выпили " + type.getDisplayName() + ". Восcтановлено " + type.getEffectValue() + " HP.");
         } else if (this.type == PotionType.STRONGEST_ATTACK) {
-            hero.restoreStrongestAttackCharges(type.getEffectValue());
+            hero.addAnAttack(type.getEffectValue());
             System.out.println("Вы выпили " + type.getDisplayName() + ". Восстановлен " + type.getEffectValue() + " заряд сильнейшей атаки.");
         }
         quantity--;
