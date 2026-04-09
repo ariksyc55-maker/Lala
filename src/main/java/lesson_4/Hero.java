@@ -103,10 +103,10 @@ public class Hero {
         System.out.println("У вас нет зелий типа " + potionType.getDisplayName() + "!");
     }
 
-    public void addAnAttack(int amount){
+   /* public void addAnAttack(int amount){
         this.maxStrongestAttacks += amount;
         System.out.println(this.name + " добавил " + amount + "атаку");
-    }
+    }*/
 
     public void heal(int amount) {
         this.health += amount;
