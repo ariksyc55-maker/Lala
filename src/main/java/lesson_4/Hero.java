@@ -89,6 +89,12 @@ public class Hero {
         System.out.println("Добавлено в инвентарь: " + quantity + "x " + type.getDisplayName());
     }
 
+    public void restoreStrongestAttackCharges(int charges) {
+        int newUsed = Math.max(0, this.usedStrongestAttacks - charges);
+        this.usedStrongestAttacks = newUsed;
+        System.out.println(this.name + " восстановил " + charges + " заряд(а) сильнейшей атаки. Осталось: " + getAvailableStrongAttacks());
+    }
+
     public void usePotion(PotionType potionType) {
         for (Iterator<Potion> iterator = potionList.iterator(); iterator.hasNext(); ) {
             Potion potion = iterator.next();

@@ -1,7 +1,9 @@
 package lesson_4;
 
 public enum PotionType {
-    HEALING("Зелье исцеления", 50);
+    HEALING("Зелье исцеления", 50),
+    STRONGEST_ATTACK("Зелье восстановление атак", 2);
+
 
     private final String displayName;
     private final int effectValue;

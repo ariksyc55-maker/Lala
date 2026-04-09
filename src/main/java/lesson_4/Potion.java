@@ -18,8 +18,13 @@ public class Potion {
     }
 
     public void use(Hero hero) {
-        hero.heal(type.getEffectValue());
-        System.out.println("Вы выпили " + type.getDisplayName() + ". Восcтановлено " + type.getEffectValue() + " HP.");
+        if (this.type == PotionType.HEALING) {
+            hero.heal(type.getEffectValue());
+            System.out.println("Вы выпили " + type.getDisplayName() + ". Восcтановлено " + type.getEffectValue() + " HP.");
+        } else if (this.type == PotionType.STRONGEST_ATTACK) {
+            hero.restoreStrongestAttackCharges(type.getEffectValue());
+            System.out.println("Вы выпили " + type.getDisplayName() + ". Восстановлен " + type.getEffectValue() + " заряд сильнейшей атаки.");
+        }
         quantity--;
     }
 
