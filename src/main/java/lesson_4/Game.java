@@ -17,22 +17,22 @@ public class Game {
 
         Warrior warriorOne = new Warrior("Артур", 240, 32);
         warriorOne.addPotion(PotionType.HEALING, 2);
-        /*warriorOne.addPotion(PotionType.STRONGEST_ATTACK, 2);*/
+        warriorOne.addPotion(PotionType.STRONGEST_ATTACK, 2);
         Warrior warriorTwo = new Warrior("Фростморн", 250, 30);
         warriorTwo.addPotion(PotionType.HEALING, 2);
-        /*warriorTwo.addPotion(PotionType.STRONGEST_ATTACK, 2);*/
+        warriorTwo.addPotion(PotionType.STRONGEST_ATTACK, 2);
         Mage mageOne = new Mage("Ягерместер", 150, 48);
         mageOne.addPotion(PotionType.HEALING, 2);
-        /*mageOne.addPotion(PotionType.STRONGEST_ATTACK, 2);*/
+        mageOne.addPotion(PotionType.STRONGEST_ATTACK, 2);
         Mage mageTwo = new Mage("Ильестр", 145, 50);
         mageTwo.addPotion(PotionType.HEALING, 2);
-        /*mageTwo.addPotion(PotionType.STRONGEST_ATTACK, 2);*/
+        mageTwo.addPotion(PotionType.STRONGEST_ATTACK, 2);
         Rogue rogueOne = new Rogue("Берсек", 180, 42);
         rogueOne.addPotion(PotionType.HEALING, 2);
-        /*rogueOne.addPotion(PotionType.STRONGEST_ATTACK, 2);*/
+        rogueOne.addPotion(PotionType.STRONGEST_ATTACK, 2);
         Rogue rogueTwo = new Rogue("Брианна", 175, 44);
         rogueTwo.addPotion(PotionType.HEALING, 2);
-        /*rogueTwo.addPotion(PotionType.STRONGEST_ATTACK, 2);*/
+        rogueTwo.addPotion(PotionType.STRONGEST_ATTACK, 2);
 
         List<Hero> heroes = new ArrayList<>();
         heroes.add(mageOne);
@@ -95,9 +95,10 @@ public class Game {
                 System.out.println("2 - Сильнейшая атака больше не доступна (заряды закончились)");
             }
             System.out.println("3 - Использовать зелье восстановления");
-            /*System.out.println("4 - Использовать зелье восстановления сильнейших атак");*/
+            System.out.println("4 - Использовать зелье восстановления сильнейших атак");
             int attackChoice = 0;
-            while (attackChoice != 1 && attackChoice != 2 && attackChoice != 3 && attackChoice != 4) {
+
+            while (attackChoice < 1 || attackChoice > 4) {
                 System.out.print("Ваш выбор: ");
                 attackChoice = scanner.nextInt();
                 scanner.nextLine();
@@ -120,9 +121,9 @@ public class Game {
                 case 3:
                     myHero.usePotion(PotionType.HEALING);
                     break;
-                /*case 4:
+                case 4:
                     myHero.usePotion(PotionType.STRONGEST_ATTACK);
-                    break;*/
+                    break;
             }
 
 
@@ -130,9 +131,11 @@ public class Game {
                 break;
             }
 
-            System.out.println(); // пробел между строками атаки
+            System.out.println("----- РАУНД " + round + " -----");
+            System.out.println("Нажмите Enter для атаки " + opponent.getName());
+            scanner.nextLine();
 
-            System.out.println("Ход: " + opponent.getName());
+            System.out.println("Ход: " + myHero.getName());
             System.out.println("1 - Обычная атака");
             if (opponent.getUsedStrongestAttacks() < opponent.getMaxStrongestAttacks()) {
                 System.out.println("2 - Сильнейшая атака (осталось: " + (opponent.getAvailableStrongAttacks()) + ")");
@@ -140,9 +143,10 @@ public class Game {
                 System.out.println("2 - Сильнейшая атака больше не доступна (заряды закончились)");
             }
             System.out.println("3 - Использовать зелье восстановления");
+            System.out.println("4 - Использовать зелье восстановления сильнейших атак");
 
             attackChoice = 0;
-            while (attackChoice != 1 && attackChoice != 2 && attackChoice != 3 && attackChoice != 4) {
+            while (attackChoice < 1 || attackChoice > 4) {
                 System.out.print("Ваш выбор: ");
                 attackChoice = scanner.nextInt();
                 scanner.nextLine();
@@ -165,8 +169,8 @@ public class Game {
                 case 3:
                     opponent.usePotion(PotionType.HEALING);
                     break;
-               /* case 4:
-                    opponent.usePotion(PotionType.STRONGEST_ATTACK);*/
+               case 4:
+                    opponent.usePotion(PotionType.STRONGEST_ATTACK);
             }
 
 
@@ -183,6 +187,8 @@ public class Game {
             System.out.println(opponent.getName() + ": " + opponent.getHealth());
             System.out.println("Зелья восстановления у " + myHero.getName() + ": " + myHero.getPotionCount(PotionType.HEALING));
             System.out.println("Зелья восстановления у " + opponent.getName() + ": " + opponent.getPotionCount(PotionType.HEALING));
+            System.out.println("Зелья восстановления атак у " + myHero.getName() + ": " + myHero.getRemainingPotionsCount(PotionType.STRONGEST_ATTACK));
+            System.out.println("Зелья восстановления атак у " + opponent.getName() + ": " + opponent.getRemainingPotionsCount(PotionType.STRONGEST_ATTACK));
             System.out.println("Нажмите Enter для продолжения...");
             scanner.nextLine();
             round++;

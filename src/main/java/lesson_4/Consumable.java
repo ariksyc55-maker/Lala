@@ -18,15 +18,22 @@ public class Consumable { //
     }
 
     public void use(Hero hero) {
-            if (this.type == PotionType.HEALING) {
-                hero.heal(type.getEffectValue());
-                System.out.println("Вы выпили " + type.getDisplayName() + ". Восстановлено " + type.getEffectValue() + " HP.");
-            } else if (this.type == PotionType.STRONGEST_ATTACK) {
-                hero.addAnAttack(type.getEffectValue());
-                System.out.println("Вы выпили " + type.getDisplayName() + ". Восстановлен " + type.getEffectValue() + " заряд сильнейшей атаки.");
-            }
-            quantity--;
+        switch (this.type) {
+            case HEALING:
+                hero.heal(this.getQuantity() * 50);
+                break;
+            case STRONGEST_ATTACK:
+                int currentUsed = hero.getUsedStrongestAttacks();
+                if (currentUsed > 0) {
+                    hero.setUsedStrongestAttacks(currentUsed - 1);
+                    System.out.println(hero.getName() + " восстановил 1 сильнейшую атаку!");
+                } else {
+                    System.out.println(hero.getName() + " и так имеет максимальное количество сильнейших атак!");
+                }
+                break;
         }
+        this.quantity--;
+    }
 
     boolean isEmpty() {
         return quantity <= 0;

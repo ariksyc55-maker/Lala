@@ -12,6 +12,7 @@ public class Hero {
     private int usedStrongestAttacks;
     private double criticalChance;
     private double criticalMultiplier;
+
     private List<Consumable> consumableList = new ArrayList<>();
 
     public double getCriticalChance() {
