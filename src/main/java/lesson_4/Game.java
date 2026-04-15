@@ -96,7 +96,6 @@ public class Game {
             }
             System.out.println("3 - Использовать зелье восстановления");
             /*System.out.println("4 - Использовать зелье восстановления сильнейших атак");*/
-
             int attackChoice = 0;
             while (attackChoice != 1 && attackChoice != 2 && attackChoice != 3 && attackChoice != 4) {
                 System.out.print("Ваш выбор: ");
@@ -179,23 +178,11 @@ public class Game {
             }
 
             System.out.println(); // пробел между строками атаки
-
             System.out.println("Состояние после раунда № " + round + ":");
             System.out.println(myHero.getName() + ": " + myHero.getHealth());
             System.out.println(opponent.getName() + ": " + opponent.getHealth());
-            int myHeroPotionCount = 0;
-            for (Potion potion : myHero.getPotionList()) {
-                myHeroPotionCount += potion.getQuantity();
-            }
-            System.out.println("Зелья восстановления у " + myHero.getName() + ": " + myHeroPotionCount);
-
-            int opponentPotionCount = 0;
-            for (Potion potion : opponent.getPotionList()) {
-                if (potion.getType() == PotionType.HEALING) {
-                    opponentPotionCount += potion.getQuantity();
-                }
-            }
-            System.out.println("Зелья восстановления у " + opponent.getName() + ": " + opponentPotionCount);
+            System.out.println("Зелья восстановления у " + myHero.getName() + ": " + myHero.getPotionCount(PotionType.HEALING));
+            System.out.println("Зелья восстановления у " + opponent.getName() + ": " + opponent.getPotionCount(PotionType.HEALING));
             System.out.println("Нажмите Enter для продолжения...");
             scanner.nextLine();
             round++;
@@ -220,17 +207,14 @@ public class Game {
     public static void printAllHeroes(List<Hero> heroes) {
         int index = 1;
         for (Hero hero : heroes) {
-            int healingPotionsCount = 0;
-            for (Potion potion : hero.getPotionList()) {
-                if (potion.getType() == PotionType.HEALING) {
-                    healingPotionsCount += potion.getQuantity();
-                }
-            }
+            int healingPotionsCount = hero.getPotionCount(PotionType.HEALING);
+
             System.out.println(index + ". " + hero.getName() + " (" + hero.getClazz() + ")");
             System.out.println("   Здоровье: " + hero.getHealth() + ", Сила: " + hero.getPower());
             System.out.println("   Зелья восстановления: " + healingPotionsCount);
-            /*System.out.println("   Зелья восстановление атак: " + healingPotionsCount);*/
+            System.out.println("   Оставшиеся сильнейшие атаки: " + (hero.getMaxStrongestAttacks() - hero.getUsedStrongestAttacks()));
             index++;
+            System.out.println(); // разделитель между героями для лучшей читаемости
         }
     }
 }

@@ -2,7 +2,6 @@ package lesson_4;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Iterator;
 
 public class Hero {
     private int health;
@@ -13,7 +12,7 @@ public class Hero {
     private int usedStrongestAttacks;
     private double criticalChance;
     private double criticalMultiplier;
-    private List<Potion> potionList = new ArrayList<>();  //изменить название класса Potion
+    private List<Consumable> consumableList = new ArrayList<>();
 
     public double getCriticalChance() {
         return criticalChance;
@@ -51,16 +50,16 @@ public class Hero {
         return usedStrongestAttacks;
     }
 
-    public List<Potion> getPotionList() {
-        return potionList;
-    }
-
     public void setHealth(int health) {
         this.health = health;
     }
 
-    public void setPotionList(List<Potion> potionList) {
-        this.potionList = potionList;
+    public List<Consumable> getConsumableList() {
+        return consumableList;
+    }
+
+    public void setConsumableList(List<Consumable> consumableList) {
+        this.consumableList = consumableList;
     }
 
     public void setPower(int power) {
@@ -83,29 +82,56 @@ public class Hero {
         this.usedStrongestAttacks = usedStrongestAttacks;
     }
 
+
     public void addPotion(PotionType type, int quantity) {
-        potionList.add(new Potion(type, quantity));
+        consumableList.add(new Consumable(type, quantity));
         System.out.println("Добавлено в инвентарь: " + quantity + "x " + type.getDisplayName());
     }
 
-    public void usePotion(PotionType potionType) {
-        for (Iterator<Potion> iterator = potionList.iterator(); iterator.hasNext(); ) { //итератор заменить
-            Potion potion = iterator.next();
-            if (potion.getType() == potionType && !potion.isEmpty()) { //переделать методы
-                potion.use(this);
-                if (potion.isEmpty()) {
-                    iterator.remove();
-                }
-                return;
-            }
-        }
-        System.out.println("У вас нет зелий типа " + potionType.getDisplayName() + "!");
+    public boolean doesHavePotion(PotionType type) {
+        return getPotionCount(type) > 0;
     }
 
-   /* public void addAnAttack(int amount){
+    public int getRemainingPotionsCount(PotionType type) {
+        int count = 0;
+        for (Consumable consumable : consumableList) {
+            if (consumable.getType() == type && !consumable.isEmpty()) {
+                count += consumable.getQuantity();
+            }
+        }
+
+        return count;
+    }
+
+    public int getPotionCount(PotionType type) {
+        int count = 0;
+        for (Consumable consumable : consumableList) {
+            if (consumable.getType() == type && !consumable.isEmpty()) {
+                count += consumable.getQuantity();
+            }
+        }
+        return count;
+    }
+
+
+    public void usePotion(PotionType potionType) {
+        boolean potionUsed = false;
+        for (Consumable consumable : consumableList) {
+            if (consumable.getType() == potionType && !consumable.isEmpty()) {
+                consumable.use(this);
+                potionUsed = true;
+                break;
+            }
+        }
+        if (!potionUsed) {
+            System.out.println("У вас нет зелий типа " + potionType.getDisplayName() + "! Пропуск хода");
+        }
+    }
+
+    public void addAnAttack(int amount) {
         this.maxStrongestAttacks += amount;
         System.out.println(this.name + " добавил " + amount + "атаку");
-    }*/
+    }
 
     public void heal(int amount) {
         this.health += amount;
@@ -114,7 +140,10 @@ public class Hero {
 
     public void voice() {
         System.out.println("Я представитель класса " + clazz + ". Моё имя " + name);
-        System.out.println(" -У меня здоровье " + health + " и моя сила " + power);
+        System.out.println(" - У меня здоровье " + health + " и моя сила " + power);
+
+        System.out.println(" - Зелий исцеления: " + getRemainingPotionsCount(PotionType.HEALING));
+        System.out.println(" - Зелий восстановления атак: " + getRemainingPotionsCount(PotionType.STRONGEST_ATTACK));
         System.out.println();
     }
 
@@ -132,12 +161,13 @@ public class Hero {
 
     public int getAvailableStrongAttacks() {
         return this.maxStrongestAttacks - this.usedStrongestAttacks;
-    }
+        }
 
     public void performStrongestAttack(Hero targetHero) {
         int maxPower = this.power * 2;
         targetHero.takeDamage(maxPower);
         System.out.println(this.name + " наносит сильнейший удар! Урон: " + maxPower);
+        this.usedStrongestAttacks++;
     }
 
     public int getHealth() {
@@ -154,7 +184,6 @@ public class Hero {
             this.health = 0;
         }
     }
-
     public void reactToDefeat() {
         if (this.health <= 0) {
             System.out.println(this.name + ": Я пал в бою, это был честный поединок...");
@@ -167,4 +196,3 @@ public class Hero {
         System.out.println(this.name);
     }
 }
-
