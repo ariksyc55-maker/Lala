@@ -59,10 +59,6 @@ public class Hero {
         return potions;
     }
 
-    public void setPotions(List<PotionType> potions) {
-        this.potions = potions;
-    }
-
     public void setPower(int power) {
         this.power = power;
     }
@@ -124,12 +120,12 @@ public class Hero {
 
     public void addAnAttack(int amount) {
         this.maxStrongestAttacks += amount;
-        System.out.println(this.name + " добавил " + amount + "атаку");
+        System.out.println(this.name + " добавил " + amount + "атаку"); //поставить ограничение по максю атаке
     }
 
     public void heal(int amount) {
         this.health += amount;
-        System.out.println(this.name + " восстановил " + amount + " HP.");
+        System.out.println(this.name + " восстановил " + amount + " HP."); //поставить ограничение по максю хп
     }
 
     public void voice() {
