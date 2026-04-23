@@ -190,6 +190,7 @@ public class Game {
             System.out.println("Зелья восстановления атак у " + myHero.getName() + ": " + myHero.getRemainingPotionsCount(PotionType.STRONGEST_ATTACK));
             System.out.println("Зелья восстановления атак у " + opponent.getName() + ": " + opponent.getRemainingPotionsCount(PotionType.STRONGEST_ATTACK));
             System.out.println("Нажмите Enter для продолжения...");
+            System.out.println();
             scanner.nextLine();
             round++;
         }
