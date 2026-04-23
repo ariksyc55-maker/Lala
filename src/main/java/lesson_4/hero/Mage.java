@@ -17,7 +17,6 @@ public class Mage extends Hero {
 
     public void performStandardAttack(Hero target) {
         double randomChance = Math.random() * 100;
-
         if (randomChance <= this.getCriticalChance()) {
             int criticalDamage = (int) (this.getPower() * this.getCriticalMultiplier());
             target.takeDamage(criticalDamage);

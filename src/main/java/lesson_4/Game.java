@@ -220,7 +220,7 @@ public class Game {
             System.out.println("   Зелья восстановления: " + healingPotionsCount);
             System.out.println("   Оставшиеся сильнейшие атаки: " + (hero.getMaxStrongestAttacks() - hero.getUsedStrongestAttacks()));
             index++;
-            System.out.println(); // разделитель между героями для лучшей читаемости
+            System.out.println(); // разделитель между героями
         }
     }
 }
