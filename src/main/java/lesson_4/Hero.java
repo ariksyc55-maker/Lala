@@ -13,7 +13,7 @@ public class Hero {
     private double criticalChance;
     private double criticalMultiplier;
 
-    private List<PotionType> potions = new ArrayList<>();
+    private final List<PotionType> potions = new ArrayList<>();
 
     public double getCriticalChance() {
         return criticalChance;
