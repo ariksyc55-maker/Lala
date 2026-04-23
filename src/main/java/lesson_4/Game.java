@@ -187,8 +187,8 @@ public class Game {
             System.out.println(opponent.getName() + ": " + opponent.getHealth());
             System.out.println("Зелья восстановления у " + myHero.getName() + ": " + myHero.getPotionCount(PotionType.HEALING));
             System.out.println("Зелья восстановления у " + opponent.getName() + ": " + opponent.getPotionCount(PotionType.HEALING));
-            System.out.println("Зелья восстановления атак у " + myHero.getName() + ": " + myHero.getRemainingPotionsCount(PotionType.STRONGEST_ATTACK));
-            System.out.println("Зелья восстановления атак у " + opponent.getName() + ": " + opponent.getRemainingPotionsCount(PotionType.STRONGEST_ATTACK));
+            System.out.println("Зелья восстановления атак у " + myHero.getName() + ": " + myHero.getPotionCount(PotionType.STRONGEST_ATTACK));
+            System.out.println("Зелья восстановления атак у " + opponent.getName() + ": " + opponent.getPotionCount(PotionType.STRONGEST_ATTACK));
             System.out.println("Нажмите Enter для продолжения...");
             System.out.println();
             scanner.nextLine();
